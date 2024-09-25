@@ -115,3 +115,8 @@ section.side-layout-main {
   /* The color for the dot in the table of contents showing the current position. */
   border-color: #002b5c;
   }
+
+
+  .main-content .anchor-heading {
+    display: none;
+  }

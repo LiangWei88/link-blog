@@ -84,7 +84,7 @@ publishing:
     enableFMTitle: true
     enableNoteTitleForLink: true
     enableMermaid: true
-    enablePrettyRefs: true
+    # enablePrettyRefs: true
     enableKatex: true
     assetsPrefix: /link-blog
     copyAssets: true
