@@ -1,0 +1,67 @@
+/* Customizing the theme for the published Dendron site. This theme darkens the background slightly and uses blue for links and highlights. */
+
+/* ============> Background colors <============ */
+section.side-layout-main {
+    background: #f8f8f8; /* Slightly lighter background for the main section */
+}
+
+footer.ant-layout-footer,
+header.ant-layout-header {
+    background: #d9d9d9; /* Uniform background for header and footer */
+}
+
+.dendron-tree-menu.ant-menu .ant-menu-submenu.dendron-ant-menu-submenu-selected > .ant-menu-submenu-title,
+.site-layout-sidebar.ant-layout,
+.ant-layout-sider,
+.ant-menu-submenu,
+.site-layout-sidebar.ant-layout .ant-menu.ant-menu-inline,
+.ant-menu-vertical .ant-menu-submenu,
+.ant-menu-vertical-left .ant-menu-submenu,
+.ant-menu-vertical-right .ant-menu-submenu,
+.ant-menu-inline .ant-menu-submenu {
+    background: #d9d9d9; /* Consistent sidebar background */
+}
+
+/* ============> Text and link colors <============ */
+body,
+h1,
+h2,
+h3,
+h4,
+.dendron-toc .ant-anchor-link-title {
+    color: #333333; /* Darker text color for better readability */
+}
+
+a,
+a:hover,
+a:active,
+.dendron-tree-menu.ant-menu .ant-menu-title-content a {
+    color: #0077c2; /* Brighter blue for links */
+}
+
+a:visited {
+    color: #003366; /* Deeper blue for visited links */
+}
+
+a.private {
+    color: #cc5d1a; /* Keep orange for private links */
+}
+
+footer .ant-typography,
+footer .ant-typography.ant-typography-secondary {
+    color: #666666; /* Lighter gray for footer text */
+}
+
+/* ============> Hover and active states <============ */
+.ant-menu-item a:hover,
+.ant-menu-item > .ant-badge a:hover,
+.ant-menu-submenu-selected,
+.ant-menu-submenu .ant-menu-submenu-title:hover {
+    color: #003366; /* Darker blue for hover states */
+}
+
+.dendron-tree-menu.ant-menu .ant-menu-inline .ant-menu-item-selected::after,
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected,
+.dendron-toc .ant-anchor-ink-ball {
+    border-color: #003366; /* Consistent border color */
+}

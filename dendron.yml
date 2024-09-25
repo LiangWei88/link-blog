@@ -110,6 +110,6 @@ publishing:
         editBranch: main
         editViewMode: tree
     enablePrettyLinks: true
-    theme: dark
+    theme: custom
     enableTaskNotes: true
     templateVersion: 0.97.0
