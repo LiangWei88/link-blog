@@ -102,14 +102,13 @@ publishing:
             - vault
     writeStubs: false
     seo:
-        title: Dendron
-        description: Personal knowledge space
+        title: 伟's Blog
+        description: 个人知识仓库
     github:
         enableEditLink: true
         editLinkText: Edit this page on GitHub
         editBranch: main
         editViewMode: tree
     enablePrettyLinks: true
-    theme: dark
     enableTaskNotes: true
     templateVersion: 0.97.0

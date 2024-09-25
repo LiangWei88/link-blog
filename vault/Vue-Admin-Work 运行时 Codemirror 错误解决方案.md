@@ -1,0 +1,79 @@
+---
+id: vxc93m7elob9g301aua90nx
+title: Vue-Admin-Work 运行时 Codemirror 错误解决方案
+desc: ''
+updated: 1727255227538
+created: 1676218880000
+---
+在使用 `vue-admin-work` 的 Vue2 版本时，你可能会遇到与 `Codemirror` 相关的错误。本文将指导你如何解决这一问题，并提供一种长久的解决方案。
+
+## 报错信息
+当你尝试运行项目时，可能会看到如下依赖缺失的错误：
+
+```
+These dependencies were not found:
+
+* codemirror/addon/display/fullscreen.js in ./node_modules/simplemde/src/js/simplemde.js
+* codemirror/addon/display/placeholder.js in ./node_modules/simplemde/src/js/simplemde.js
+* codemirror/addon/edit/continuelist.js in ./node_modules/simplemde/src/js/simplemde.js
+* codemirror/addon/mode/overlay.js in ./node_modules/simplemde/src/js/simplemde.js
+* codemirror/addon/selection/mark-selection.js in ./node_modules/simplemde/src/js/simplemde.js
+* codemirror/mode/gfm/gfm.js in ./node_modules/simplemde/src/js/simplemde.js
+* codemirror/mode/markdown/markdown.js in ./node_modules/simplemde/src/js/simplemde.js
+* codemirror/mode/xml/xml.js in ./node_modules/simplemde/src/js/simplemde.js
+```
+
+## 问题原因
+该框架使用了 `simplemde` 库，而这个库已经很久没有更新。由于其依赖版本定义中使用了通配符 `*`，导致安装时自动选择了最新版本的依赖，从而产生了兼容性问题。如果你使用的是 `npm` 并且有 `package-lock.json` 文件锁定版本，则可能不会出现此问题。但如果你使用 `yarn` 或 `pnpm` 等其他包管理工具，它们会安装最新的依赖，从而引发错误。
+
+## 解决方案
+
+### 简单方法
+1. 删除现有的 `node_modules` 文件夹。
+2. 使用 `npm i` 重新安装所有依赖。
+3. 在后续开发中始终使用 `npm` 来管理你的依赖。
+
+```shell
+rm -rf node_modules
+npm i
+```
+
+### 长久之计
+`simplemde` 库已被废弃，你可以采用修改后的替代版本 `simplemde-w`。这个版本对依赖进行了更新，确保与当前环境兼容。
+
+#### 安装
+根据你使用的包管理工具选择对应的命令：
+
+- **npm**
+  ```shell
+  npm uninstall simplemde
+  npm i simplemde-w
+  ```
+
+- **yarn**
+  ```shell
+  yarn remove simplemde
+  yarn add simplemde-w
+  ```
+
+- **pnpm**
+  ```shell
+  pnpm remove simplemde
+  pnpm add simplemde-w
+  ```
+
+#### 使用
+全局搜索并替换引入 `simplemde` 的地方为 `simplemde-w`。
+
+例如：
+```javascript
+// 旧代码
+// import 'simplemde/dist/simplemde.min.css'
+// import SimpleMDE from 'simplemde'
+
+// 新代码
+import 'simplemde-w/dist/simplemde.min.css'
+import SimpleMDE from 'simplemde-w'
+```
+
+希望这些步骤能够帮助你解决问题。如果还有其他疑问或更好的解决方案，请在评论区分享你的经验！
