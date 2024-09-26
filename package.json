@@ -5,7 +5,10 @@
   "repository": "https://github.com/dendronhq/template.publish.github-action.git",
   "author": "Kevin <kevin@dendron.so>",
   "license": "MIT",
+  "scripts": {
+    "dev": "dendron publish dev"
+  },
   "dependencies": {
-    "@dendronhq/dendron-cli": "^0.106.0"
+    "@dendronhq/dendron-cli": "^0.119.0"
   }
 }
