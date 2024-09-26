@@ -16,9 +16,9 @@ commands:
     insertNoteIndex:
         enableMarker: false
     randomNote: {}
-    copyNoteLink: {
-      aliasMode: title
-    }
+    copyNoteLink:
+        aliasMode: title
+    templateHierarchy: template
 workspace:
     vaults:
         -
@@ -34,6 +34,7 @@ workspace:
         addBehavior: asOwnDomain
     graph:
         zoomSpeed: 1
+        createStub: false
     enableAutoCreateOnDefinition: false
     enableXVaultWikiLink: false
     enableRemoteVaultInit: true
@@ -66,40 +67,25 @@ workspace:
             - x
     enableUserTags: true
     enableHashTags: true
-    dendronVersion: 0.95.0
+    dendronVersion: 0.119.0
     enableEditorDecorations: true
     enableFullHierarchyNoteTitle: false
-    enableHandlebarTemplates: false
-    templateHierarchy: template
 preview:
     enableFMTitle: true
     enableNoteTitleForLink: true
-    enableMermaid: true
     enablePrettyRefs: true
     enableKatex: true
     automaticallyShowPreview: false
     enableFrontmatterTags: true
     enableHashesForFMTags: false
 publishing:
-    searchMode: lookup
     enableFMTitle: true
     enableNoteTitleForLink: true
-    # enablePrettyRefs: true
+    enablePrettyRefs: true
     enableKatex: true
-    assetsPrefix: /link-blog
     copyAssets: true
     siteHierarchies:
         - root
-    enableSiteLastModified: true
-    siteRootDir: docs
-    siteUrl: https://liangwei88.github.io/
-    enableFrontmatterTags: true
-    enableHashesForFMTags: false
-    enableRandomlyColoredTags: true
-    duplicateNoteBehavior:
-        action: useVault
-        payload:
-            - vault
     writeStubs: false
     seo:
         title: 伟's Blog
@@ -109,6 +95,17 @@ publishing:
         editLinkText: Edit this page on GitHub
         editBranch: main
         editViewMode: tree
-    enablePrettyLinks: true
-    theme: custom
+    enableSiteLastModified: true
+    enableFrontmatterTags: true
+    enableHashesForFMTags: false
+    enableRandomlyColoredTags: true
     enableTaskNotes: true
+    enablePrettyLinks: true
+    searchMode: lookup
+    siteUrl: https://liangwei.link
+    siteRootDir: /
+    duplicateNoteBehavior:
+        action: useVault
+        payload:
+            - vault
+    theme: custom
