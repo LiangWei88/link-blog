@@ -1,0 +1,1655 @@
+{
+  "notes": {
+    "403": {
+      "vault": {
+        "fsPath": "vault"
+      },
+      "fname": "403",
+      "id": "403",
+      "title": "This page has not yet sprouted",
+      "schemaStub": false,
+      "type": "note",
+      "updated": 1727342793390,
+      "created": 1727342793390,
+      "desc": "",
+      "links": [],
+      "anchors": {},
+      "children": [],
+      "parent": null,
+      "data": {}
+    },
+    "wn8PE1RhG0znK1alrGFYv": {
+      "id": "wn8PE1RhG0znK1alrGFYv",
+      "title": "伟's 博客首页",
+      "desc": "",
+      "updated": 1727342507885,
+      "created": 1631901573363,
+      "custom": {
+        "nav_order": 0,
+        "permalink": "/"
+      },
+      "fname": "root",
+      "type": "note",
+      "vault": {
+        "fsPath": "vault"
+      },
+      "contentHash": "ba3147c578c97d5c5d78f280e5de46ff",
+      "links": [],
+      "anchors": {
+        "todo-这里准备收集我自己的作品的介绍": {
+          "type": "header",
+          "text": "TODO 这里准备收集我自己的作品的介绍",
+          "value": "todo-这里准备收集我自己的作品的介绍",
+          "line": 12,
+          "column": 0,
+          "depth": 2
+        }
+      },
+      "children": [
+        "vsguek05jsxrs3n29u2djmg",
+        "42flion6vsanas7ma8apdgc",
+        "cyjg2pr9blmc62o08wkqi7h",
+        "jj9rnjwpe2h2c5x2u03wnkc",
+        "05qorc5h89z69ikhuezjfl4"
+      ],
+      "parent": null,
+      "data": {}
+    },
+    "05qorc5h89z69ikhuezjfl4": {
+      "fname": "tags",
+      "stub": true,
+      "vault": {
+        "fsPath": "vault"
+      },
+      "schemaStub": false,
+      "type": "note",
+      "updated": 1727342793081,
+      "created": 1727342793081,
+      "id": "05qorc5h89z69ikhuezjfl4",
+      "desc": "",
+      "links": [],
+      "anchors": {},
+      "children": [
+        "6xrqi3o92dyo030yxcy2w4u",
+        "qckkp648x79eibufdx7ldrd",
+        "x6h3yqz3zv0nmgq9dw0olq1",
+        "ak8w5k8m9mwlnap1uno5wm1",
+        "wumpk0duqthr2lqhi3j873s",
+        "v1zm9rr62uhe3qr6ksko45c",
+        "teew81jj72hor57c4qz3qz0"
+      ],
+      "parent": "wn8PE1RhG0znK1alrGFYv",
+      "data": {},
+      "title": "Tags"
+    },
+    "teew81jj72hor57c4qz3qz0": {
+      "id": "teew81jj72hor57c4qz3qz0",
+      "title": "鸿蒙",
+      "desc": "",
+      "updated": 1727338237523,
+      "created": 1727338237523,
+      "custom": {},
+      "fname": "tags.鸿蒙",
+      "type": "note",
+      "vault": {
+        "fsPath": "vault"
+      },
+      "contentHash": "e8857171307fb6cd74e2e85ac366d7a3",
+      "links": [
+        {
+          "from": {
+            "fname": "2024.鸿蒙HarmonyOS开发高级认证知识点总结",
+            "id": "5tby10aumcvamgjobrozhgm",
+            "vaultName": "vault"
+          },
+          "type": "backlink",
+          "value": "tags.鸿蒙"
+        }
+      ],
+      "anchors": {},
+      "children": [],
+      "parent": "05qorc5h89z69ikhuezjfl4",
+      "data": {}
+    },
+    "v1zm9rr62uhe3qr6ksko45c": {
+      "id": "v1zm9rr62uhe3qr6ksko45c",
+      "title": "设计",
+      "desc": "",
+      "updated": 1727338251100,
+      "created": 1727338251100,
+      "custom": {},
+      "fname": "tags.设计",
+      "type": "note",
+      "vault": {
+        "fsPath": "vault"
+      },
+      "contentHash": "833b870a79a74d2d2879f05a548f9d3c",
+      "links": [
+        {
+          "from": {
+            "fname": "2016.如何在功能性和灵活性之间找到平衡？——以老版Wiz为知笔记为例",
+            "id": "iwxigrdwygj5umbcrk72rqp",
+            "vaultName": "vault"
+          },
+          "type": "backlink",
+          "value": "tags.设计"
+        },
+        {
+          "from": {
+            "fname": "2017.网页设计定价：揭秘背后的故事",
+            "id": "bsdjcehdkbqi1lz6vv8ghax",
+            "vaultName": "vault"
+          },
+          "type": "backlink",
+          "value": "tags.设计"
+        }
+      ],
+      "anchors": {},
+      "children": [],
+      "parent": "05qorc5h89z69ikhuezjfl4",
+      "data": {}
+    },
+    "wumpk0duqthr2lqhi3j873s": {
+      "id": "wumpk0duqthr2lqhi3j873s",
+      "title": "科普",
+      "desc": "",
+      "updated": 1727338246930,
+      "created": 1727338246930,
+      "custom": {},
+      "fname": "tags.科普",
+      "type": "note",
+      "vault": {
+        "fsPath": "vault"
+      },
+      "contentHash": "50a5c156d3d304dd7a38133e01808ac4",
+      "links": [
+        {
+          "from": {
+            "fname": "2016.谁动了我的硬盘？电脑数据容量单位科普入门浅析",
+            "id": "49y747ss65qa4xp6jdvneys",
+            "vaultName": "vault"
+          },
+          "type": "backlink",
+          "value": "tags.科普"
+        }
+      ],
+      "anchors": {},
+      "children": [],
+      "parent": "05qorc5h89z69ikhuezjfl4",
+      "data": {}
+    },
+    "ak8w5k8m9mwlnap1uno5wm1": {
+      "id": "ak8w5k8m9mwlnap1uno5wm1",
+      "title": "思考",
+      "desc": "",
+      "updated": 1727338242618,
+      "created": 1727338242618,
+      "custom": {},
+      "fname": "tags.思考",
+      "type": "note",
+      "vault": {
+        "fsPath": "vault"
+      },
+      "contentHash": "c818dcaa22bd5de7e34ae7a5f4e980d0",
+      "links": [
+        {
+          "from": {
+            "fname": "2016.如何在功能性和灵活性之间找到平衡？——以老版Wiz为知笔记为例",
+            "id": "iwxigrdwygj5umbcrk72rqp",
+            "vaultName": "vault"
+          },
+          "type": "backlink",
+          "value": "tags.思考"
+        },
+        {
+          "from": {
+            "fname": "2017.如何合理定价建站服务？",
+            "id": "0k6y0yd7iz2z13a9acrpydb",
+            "vaultName": "vault"
+          },
+          "type": "backlink",
+          "value": "tags.思考"
+        },
+        {
+          "from": {
+            "fname": "2017.网站价值几何？",
+            "id": "1kadaw0m526pe4nigpk54hs",
+            "vaultName": "vault"
+          },
+          "type": "backlink",
+          "value": "tags.思考"
+        },
+        {
+          "from": {
+            "fname": "2017.网页设计定价：揭秘背后的故事",
+            "id": "bsdjcehdkbqi1lz6vv8ghax",
+            "vaultName": "vault"
+          },
+          "type": "backlink",
+          "value": "tags.思考"
+        }
+      ],
+      "anchors": {},
+      "children": [],
+      "parent": "05qorc5h89z69ikhuezjfl4",
+      "data": {}
+    },
+    "x6h3yqz3zv0nmgq9dw0olq1": {
+      "id": "x6h3yqz3zv0nmgq9dw0olq1",
+      "title": "开发",
+      "desc": "",
+      "updated": 1727338232259,
+      "created": 1727338232259,
+      "custom": {},
+      "fname": "tags.开发",
+      "type": "note",
+      "vault": {
+        "fsPath": "vault"
+      },
+      "contentHash": "79dae065339cbfd06e35c353b2637581",
+      "links": [
+        {
+          "from": {
+            "fname": "2017.WordPress 迁移后遇到的问题及解决方案",
+            "id": "2obij3czw1d1v00gn5snylt",
+            "vaultName": "vault"
+          },
+          "type": "backlink",
+          "value": "tags.开发"
+        },
+        {
+          "from": {
+            "fname": "2023.Vue-Admin-Work 运行时 Codemirror 错误解决方案",
+            "id": "vxc93m7elob9g301aua90nx",
+            "vaultName": "vault"
+          },
+          "type": "backlink",
+          "value": "tags.开发"
+        },
+        {
+          "from": {
+            "fname": "2023.前端 vue 基本功自测",
+            "id": "z1g32namvhye08f52cerm6f",
+            "vaultName": "vault"
+          },
+          "type": "backlink",
+          "value": "tags.开发"
+        },
+        {
+          "from": {
+            "fname": "2024.鸿蒙HarmonyOS开发高级认证知识点总结",
+            "id": "5tby10aumcvamgjobrozhgm",
+            "vaultName": "vault"
+          },
+          "type": "backlink",
+          "value": "tags.开发"
+        }
+      ],
+      "anchors": {},
+      "children": [],
+      "parent": "05qorc5h89z69ikhuezjfl4",
+      "data": {}
+    },
+    "qckkp648x79eibufdx7ldrd": {
+      "id": "qckkp648x79eibufdx7ldrd",
+      "title": "前端",
+      "desc": "",
+      "updated": 1727340612527,
+      "created": 1727340612527,
+      "custom": {},
+      "fname": "tags.前端",
+      "type": "note",
+      "vault": {
+        "fsPath": "vault"
+      },
+      "contentHash": "7afb56608d3943a0d0db80462482a239",
+      "links": [
+        {
+          "from": {
+            "fname": "2023.前端 vue 基本功自测",
+            "id": "z1g32namvhye08f52cerm6f",
+            "vaultName": "vault"
+          },
+          "type": "backlink",
+          "value": "tags.前端"
+        }
+      ],
+      "anchors": {},
+      "children": [],
+      "parent": "05qorc5h89z69ikhuezjfl4",
+      "data": {}
+    },
+    "6xrqi3o92dyo030yxcy2w4u": {
+      "id": "6xrqi3o92dyo030yxcy2w4u",
+      "title": "Vue",
+      "desc": "",
+      "updated": 1727338743496,
+      "created": 1727338743496,
+      "custom": {},
+      "fname": "tags.vue",
+      "type": "note",
+      "vault": {
+        "fsPath": "vault"
+      },
+      "contentHash": "69d69568cb327b8d5f0173866e75f6b3",
+      "links": [
+        {
+          "from": {
+            "fname": "2023.Vue-Admin-Work 运行时 Codemirror 错误解决方案",
+            "id": "vxc93m7elob9g301aua90nx",
+            "vaultName": "vault"
+          },
+          "type": "backlink",
+          "value": "tags.vue"
+        },
+        {
+          "from": {
+            "fname": "2023.前端 vue 基本功自测",
+            "id": "z1g32namvhye08f52cerm6f",
+            "vaultName": "vault"
+          },
+          "type": "backlink",
+          "value": "tags.vue"
+        }
+      ],
+      "anchors": {},
+      "children": [],
+      "parent": "05qorc5h89z69ikhuezjfl4",
+      "data": {}
+    },
+    "jj9rnjwpe2h2c5x2u03wnkc": {
+      "id": "jj9rnjwpe2h2c5x2u03wnkc",
+      "title": "2024 年文章",
+      "desc": "",
+      "updated": 1727342712422,
+      "created": 1727337902766,
+      "custom": {},
+      "fname": "2024",
+      "type": "note",
+      "vault": {
+        "fsPath": "vault"
+      },
+      "contentHash": "9652d1b388af4082e7da7ec087fa0b10",
+      "links": [],
+      "anchors": {},
+      "children": [
+        "5tby10aumcvamgjobrozhgm"
+      ],
+      "parent": "wn8PE1RhG0znK1alrGFYv",
+      "data": {}
+    },
+    "5tby10aumcvamgjobrozhgm": {
+      "id": "5tby10aumcvamgjobrozhgm",
+      "title": "鸿蒙HarmonyOS开发高级认证知识点总结",
+      "desc": "探索应用架构的演进，从单体架构到微服务再到Serverless架构，了解它们的优势与挑战。掌握鸿蒙操作系统的ArkUI与声明式开发，利用ArkTS开发范式提高开发效率。深入了解版本管理、端云一体化开发、兼容性与特征能力、认证服务等关键概念。学习测试与发布流程，线程与后台任务处理，通信协议与数据管理，以及端云一体化开发的实践。掌握组件开发技巧，包括页面栈、Tab组件、Column和Row容器组件等的使用。",
+      "updated": 1727338189668,
+      "created": 1727321209595,
+      "tags": [
+        "鸿蒙",
+        "开发"
+      ],
+      "custom": {},
+      "fname": "2024.鸿蒙HarmonyOS开发高级认证知识点总结",
+      "type": "note",
+      "vault": {
+        "fsPath": "vault"
+      },
+      "contentHash": "021d2487ec25c7169e188a86fe1904f5",
+      "links": [
+        {
+          "type": "frontmatterTag",
+          "from": {
+            "fname": "2024.鸿蒙HarmonyOS开发高级认证知识点总结",
+            "id": "5tby10aumcvamgjobrozhgm",
+            "vaultName": "vault"
+          },
+          "value": "tags.鸿蒙",
+          "alias": "鸿蒙",
+          "xvault": false,
+          "to": {
+            "fname": "tags.鸿蒙"
+          }
+        },
+        {
+          "type": "frontmatterTag",
+          "from": {
+            "fname": "2024.鸿蒙HarmonyOS开发高级认证知识点总结",
+            "id": "5tby10aumcvamgjobrozhgm",
+            "vaultName": "vault"
+          },
+          "value": "tags.开发",
+          "alias": "开发",
+          "xvault": false,
+          "to": {
+            "fname": "tags.开发"
+          }
+        }
+      ],
+      "anchors": {
+        "应用架构的演进": {
+          "type": "header",
+          "text": "应用架构的演进",
+          "value": "应用架构的演进",
+          "line": 11,
+          "column": 0,
+          "depth": 2
+        },
+        "arkui与声明式开发": {
+          "type": "header",
+          "text": "ArkUI与声明式开发",
+          "value": "arkui与声明式开发",
+          "line": 16,
+          "column": 0,
+          "depth": 2
+        },
+        "arkts-开发范式": {
+          "type": "header",
+          "text": "ArkTS 开发范式",
+          "value": "arkts-开发范式",
+          "line": 17,
+          "column": 0,
+          "depth": 3
+        },
+        "arkui声明式开发范式": {
+          "type": "header",
+          "text": "ArKUI声明式开发范式",
+          "value": "arkui声明式开发范式",
+          "line": 20,
+          "column": 0,
+          "depth": 3
+        },
+        "配置与管理": {
+          "type": "header",
+          "text": "配置与管理",
+          "value": "配置与管理",
+          "line": 27,
+          "column": 0,
+          "depth": 2
+        },
+        "版本管理": {
+          "type": "header",
+          "text": "版本管理",
+          "value": "版本管理",
+          "line": 28,
+          "column": 0,
+          "depth": 3
+        },
+        "鸿蒙应用元服务上架问题": {
+          "type": "header",
+          "text": "鸿蒙应用/元服务上架问题",
+          "value": "鸿蒙应用元服务上架问题",
+          "line": 40,
+          "column": 0,
+          "depth": 3
+        },
+        "兼容性与特征能力": {
+          "type": "header",
+          "text": "兼容性与特征能力",
+          "value": "兼容性与特征能力",
+          "line": 43,
+          "column": 0,
+          "depth": 2
+        },
+        "认证服务": {
+          "type": "header",
+          "text": "认证服务",
+          "value": "认证服务",
+          "line": 44,
+          "column": 0,
+          "depth": 3
+        },
+        "测试与发布流程": {
+          "type": "header",
+          "text": "测试与发布流程",
+          "value": "测试与发布流程",
+          "line": 53,
+          "column": 0,
+          "depth": 2
+        },
+        "serverless服务": {
+          "type": "header",
+          "text": "Serverless服务",
+          "value": "serverless服务",
+          "line": 54,
+          "column": 0,
+          "depth": 3
+        },
+        "线程与后台任务处理": {
+          "type": "header",
+          "text": "线程与后台任务处理",
+          "value": "线程与后台任务处理",
+          "line": 66,
+          "column": 0,
+          "depth": 2
+        },
+        "worker线程": {
+          "type": "header",
+          "text": "Worker线程",
+          "value": "worker线程",
+          "line": 67,
+          "column": 0,
+          "depth": 3
+        },
+        "通信协议与数据管理": {
+          "type": "header",
+          "text": "通信协议与数据管理",
+          "value": "通信协议与数据管理",
+          "line": 72,
+          "column": 0,
+          "depth": 2
+        },
+        "云函数包格式": {
+          "type": "header",
+          "text": "云函数包格式",
+          "value": "云函数包格式",
+          "line": 73,
+          "column": 0,
+          "depth": 3
+        },
+        "服务": {
+          "type": "header",
+          "text": "服务",
+          "value": "服务",
+          "line": 81,
+          "column": 0,
+          "depth": 3
+        },
+        "端云一体化开发": {
+          "type": "header",
+          "text": "端云一体化开发",
+          "value": "端云一体化开发",
+          "line": 87,
+          "column": 0,
+          "depth": 2
+        },
+        "端云一体化": {
+          "type": "header",
+          "text": "端云一体化",
+          "value": "端云一体化",
+          "line": 88,
+          "column": 0,
+          "depth": 3
+        },
+        "组件开发": {
+          "type": "header",
+          "text": "组件开发",
+          "value": "组件开发",
+          "line": 98,
+          "column": 0,
+          "depth": 2
+        },
+        "页面栈": {
+          "type": "header",
+          "text": "页面栈",
+          "value": "页面栈",
+          "line": 99,
+          "column": 0,
+          "depth": 3
+        },
+        "tab组件页签": {
+          "type": "header",
+          "text": "Tab组件页签",
+          "value": "tab组件页签",
+          "line": 103,
+          "column": 0,
+          "depth": 3
+        },
+        "column和row容器组件": {
+          "type": "header",
+          "text": "Column和Row容器组件",
+          "value": "column和row容器组件",
+          "line": 106,
+          "column": 0,
+          "depth": 3
+        },
+        "自定义组件和子组件": {
+          "type": "header",
+          "text": "自定义组件和子组件",
+          "value": "自定义组件和子组件",
+          "line": 109,
+          "column": 0,
+          "depth": 3
+        },
+        "video组件": {
+          "type": "header",
+          "text": "Video组件",
+          "value": "video组件",
+          "line": 115,
+          "column": 0,
+          "depth": 3
+        },
+        "组件化特点": {
+          "type": "header",
+          "text": "组件化特点",
+          "value": "组件化特点",
+          "line": 118,
+          "column": 0,
+          "depth": 3
+        },
+        "容器组件滚动": {
+          "type": "header",
+          "text": "容器组件滚动",
+          "value": "容器组件滚动",
+          "line": 121,
+          "column": 0,
+          "depth": 3
+        },
+        "组件层次结构": {
+          "type": "header",
+          "text": "组件层次结构",
+          "value": "组件层次结构",
+          "line": 124,
+          "column": 0,
+          "depth": 3
+        },
+        "其他": {
+          "type": "header",
+          "text": "其他",
+          "value": "其他",
+          "line": 128,
+          "column": 0,
+          "depth": 2
+        }
+      },
+      "children": [],
+      "parent": "jj9rnjwpe2h2c5x2u03wnkc",
+      "data": {}
+    },
+    "cyjg2pr9blmc62o08wkqi7h": {
+      "id": "cyjg2pr9blmc62o08wkqi7h",
+      "title": "2023 年文章",
+      "desc": "",
+      "updated": 1727342706520,
+      "created": 1727338754307,
+      "custom": {},
+      "fname": "2023",
+      "type": "note",
+      "vault": {
+        "fsPath": "vault"
+      },
+      "contentHash": "55aa6a035f221410d4b4262b20a3da23",
+      "links": [],
+      "anchors": {},
+      "children": [
+        "vxc93m7elob9g301aua90nx",
+        "z1g32namvhye08f52cerm6f"
+      ],
+      "parent": "wn8PE1RhG0znK1alrGFYv",
+      "data": {}
+    },
+    "z1g32namvhye08f52cerm6f": {
+      "id": "z1g32namvhye08f52cerm6f",
+      "title": "前端 Vue 基本功自测",
+      "desc": "一系列Vue.js实践题目，旨在考察开发者对Vue框架的掌握程度。题目包括实现计数器、表格分页、导航栏跳转、购物车功能、留言板以及日历组件等。同时，还提供了使用json-server模拟留言板接口的方法，包括安装json-server、创建模拟数据文件、启动服务器以及基本的接口文档。",
+      "updated": 1727340666260,
+      "created": 1702340430782,
+      "tags": [
+        "vue",
+        "开发",
+        "前端"
+      ],
+      "custom": {},
+      "fname": "2023.前端 vue 基本功自测",
+      "type": "note",
+      "vault": {
+        "fsPath": "vault"
+      },
+      "contentHash": "b9d3a48022612a2bfa23ecf2f74112ae",
+      "links": [
+        {
+          "type": "frontmatterTag",
+          "from": {
+            "fname": "2023.前端 vue 基本功自测",
+            "id": "z1g32namvhye08f52cerm6f",
+            "vaultName": "vault"
+          },
+          "value": "tags.vue",
+          "alias": "vue",
+          "xvault": false,
+          "to": {
+            "fname": "tags.vue"
+          }
+        },
+        {
+          "type": "frontmatterTag",
+          "from": {
+            "fname": "2023.前端 vue 基本功自测",
+            "id": "z1g32namvhye08f52cerm6f",
+            "vaultName": "vault"
+          },
+          "value": "tags.开发",
+          "alias": "开发",
+          "xvault": false,
+          "to": {
+            "fname": "tags.开发"
+          }
+        },
+        {
+          "type": "frontmatterTag",
+          "from": {
+            "fname": "2023.前端 vue 基本功自测",
+            "id": "z1g32namvhye08f52cerm6f",
+            "vaultName": "vault"
+          },
+          "value": "tags.前端",
+          "alias": "前端",
+          "xvault": false,
+          "to": {
+            "fname": "tags.前端"
+          }
+        }
+      ],
+      "anchors": {
+        "目的": {
+          "type": "header",
+          "text": "目的",
+          "value": "目的",
+          "line": 12,
+          "column": 0,
+          "depth": 1
+        },
+        "题目": {
+          "type": "header",
+          "text": "题目",
+          "value": "题目",
+          "line": 14,
+          "column": 0,
+          "depth": 1
+        },
+        "配套数据": {
+          "type": "header",
+          "text": "配套数据",
+          "value": "配套数据",
+          "line": 21,
+          "column": 0,
+          "depth": 1
+        },
+        "获取留言列表": {
+          "type": "header",
+          "text": "获取留言列表",
+          "value": "获取留言列表",
+          "line": 51,
+          "column": 0,
+          "depth": 4
+        },
+        "添加新留言": {
+          "type": "header",
+          "text": "添加新留言",
+          "value": "添加新留言",
+          "line": 70,
+          "column": 0,
+          "depth": 4
+        },
+        "删除留言": {
+          "type": "header",
+          "text": "删除留言",
+          "value": "删除留言",
+          "line": 91,
+          "column": 0,
+          "depth": 4
+        }
+      },
+      "children": [],
+      "parent": "cyjg2pr9blmc62o08wkqi7h",
+      "data": {}
+    },
+    "vxc93m7elob9g301aua90nx": {
+      "id": "vxc93m7elob9g301aua90nx",
+      "title": "Vue-Admin-Work 运行时 Codemirror 错误解决方案",
+      "desc": "解决在使用 vue-admin-work 的 Vue2 版本时遇到的 Codemirror 相关错误，提供简单方法和长久之计，包括使用替代库 simplemde-w 并更新依赖",
+      "updated": 1727338733643,
+      "created": 1676218880000,
+      "tags": [
+        "vue",
+        "vue2",
+        "vue-admin-work",
+        "codemirror",
+        "开发"
+      ],
+      "custom": {},
+      "fname": "2023.Vue-Admin-Work 运行时 Codemirror 错误解决方案",
+      "type": "note",
+      "vault": {
+        "fsPath": "vault"
+      },
+      "contentHash": "f4d406af91cbb1537dbcf6237240428c",
+      "links": [
+        {
+          "type": "frontmatterTag",
+          "from": {
+            "fname": "2023.Vue-Admin-Work 运行时 Codemirror 错误解决方案",
+            "id": "vxc93m7elob9g301aua90nx",
+            "vaultName": "vault"
+          },
+          "value": "tags.vue",
+          "alias": "vue",
+          "xvault": false,
+          "to": {
+            "fname": "tags.vue"
+          }
+        },
+        {
+          "type": "frontmatterTag",
+          "from": {
+            "fname": "2023.Vue-Admin-Work 运行时 Codemirror 错误解决方案",
+            "id": "vxc93m7elob9g301aua90nx",
+            "vaultName": "vault"
+          },
+          "value": "tags.vue2",
+          "alias": "vue2",
+          "xvault": false,
+          "to": {
+            "fname": "tags.vue2"
+          }
+        },
+        {
+          "type": "frontmatterTag",
+          "from": {
+            "fname": "2023.Vue-Admin-Work 运行时 Codemirror 错误解决方案",
+            "id": "vxc93m7elob9g301aua90nx",
+            "vaultName": "vault"
+          },
+          "value": "tags.vue-admin-work",
+          "alias": "vue-admin-work",
+          "xvault": false,
+          "to": {
+            "fname": "tags.vue-admin-work"
+          }
+        },
+        {
+          "type": "frontmatterTag",
+          "from": {
+            "fname": "2023.Vue-Admin-Work 运行时 Codemirror 错误解决方案",
+            "id": "vxc93m7elob9g301aua90nx",
+            "vaultName": "vault"
+          },
+          "value": "tags.codemirror",
+          "alias": "codemirror",
+          "xvault": false,
+          "to": {
+            "fname": "tags.codemirror"
+          }
+        },
+        {
+          "type": "frontmatterTag",
+          "from": {
+            "fname": "2023.Vue-Admin-Work 运行时 Codemirror 错误解决方案",
+            "id": "vxc93m7elob9g301aua90nx",
+            "vaultName": "vault"
+          },
+          "value": "tags.开发",
+          "alias": "开发",
+          "xvault": false,
+          "to": {
+            "fname": "tags.开发"
+          }
+        }
+      ],
+      "anchors": {
+        "报错信息": {
+          "type": "header",
+          "text": "报错信息",
+          "value": "报错信息",
+          "line": 17,
+          "column": 0,
+          "depth": 2
+        },
+        "问题原因": {
+          "type": "header",
+          "text": "问题原因",
+          "value": "问题原因",
+          "line": 33,
+          "column": 0,
+          "depth": 2
+        },
+        "解决方案": {
+          "type": "header",
+          "text": "解决方案",
+          "value": "解决方案",
+          "line": 36,
+          "column": 0,
+          "depth": 2
+        },
+        "简单方法": {
+          "type": "header",
+          "text": "简单方法",
+          "value": "简单方法",
+          "line": 38,
+          "column": 0,
+          "depth": 3
+        },
+        "长久之计": {
+          "type": "header",
+          "text": "长久之计",
+          "value": "长久之计",
+          "line": 48,
+          "column": 0,
+          "depth": 3
+        },
+        "安装": {
+          "type": "header",
+          "text": "安装",
+          "value": "安装",
+          "line": 51,
+          "column": 0,
+          "depth": 4
+        },
+        "使用": {
+          "type": "header",
+          "text": "使用",
+          "value": "使用",
+          "line": 72,
+          "column": 0,
+          "depth": 4
+        }
+      },
+      "children": [],
+      "parent": "cyjg2pr9blmc62o08wkqi7h",
+      "data": {}
+    },
+    "42flion6vsanas7ma8apdgc": {
+      "id": "42flion6vsanas7ma8apdgc",
+      "title": "2017 年文章",
+      "desc": "",
+      "updated": 1727342701040,
+      "created": 1727337828537,
+      "custom": {},
+      "fname": "2017",
+      "type": "note",
+      "vault": {
+        "fsPath": "vault"
+      },
+      "contentHash": "390add31d3a21c154a45d75af9c72afb",
+      "links": [],
+      "anchors": {},
+      "children": [
+        "2obij3czw1d1v00gn5snylt",
+        "0k6y0yd7iz2z13a9acrpydb",
+        "1kadaw0m526pe4nigpk54hs",
+        "bsdjcehdkbqi1lz6vv8ghax"
+      ],
+      "parent": "wn8PE1RhG0znK1alrGFYv",
+      "data": {}
+    },
+    "bsdjcehdkbqi1lz6vv8ghax": {
+      "id": "bsdjcehdkbqi1lz6vv8ghax",
+      "title": "网页设计定价：揭秘背后的故事",
+      "desc": "法语文章翻译",
+      "updated": 1727338273576,
+      "created": 1498206626000,
+      "tags": [
+        "思考",
+        "设计"
+      ],
+      "custom": {},
+      "fname": "2017.网页设计定价：揭秘背后的故事",
+      "type": "note",
+      "vault": {
+        "fsPath": "vault"
+      },
+      "contentHash": "17f88f87308e7f4c1f41b493f9d32920",
+      "links": [
+        {
+          "type": "frontmatterTag",
+          "from": {
+            "fname": "2017.网页设计定价：揭秘背后的故事",
+            "id": "bsdjcehdkbqi1lz6vv8ghax",
+            "vaultName": "vault"
+          },
+          "value": "tags.思考",
+          "alias": "思考",
+          "xvault": false,
+          "to": {
+            "fname": "tags.思考"
+          }
+        },
+        {
+          "type": "frontmatterTag",
+          "from": {
+            "fname": "2017.网页设计定价：揭秘背后的故事",
+            "id": "bsdjcehdkbqi1lz6vv8ghax",
+            "vaultName": "vault"
+          },
+          "value": "tags.设计",
+          "alias": "设计",
+          "xvault": false,
+          "to": {
+            "fname": "tags.设计"
+          }
+        }
+      ],
+      "anchors": {
+        "我不是专家但这是我的观察": {
+          "type": "header",
+          "text": "我不是专家，但这是我的观察",
+          "value": "我不是专家但这是我的观察",
+          "line": 14,
+          "column": 0,
+          "depth": 2
+        },
+        "了解网页设计师的不同类型": {
+          "type": "header",
+          "text": "了解网页设计师的不同类型",
+          "value": "了解网页设计师的不同类型",
+          "line": 18,
+          "column": 0,
+          "depth": 2
+        },
+        "价格差异的背后": {
+          "type": "header",
+          "text": "价格差异的背后",
+          "value": "价格差异的背后",
+          "line": 28,
+          "column": 0,
+          "depth": 2
+        },
+        "避免低价陷阱": {
+          "type": "header",
+          "text": "避免低价陷阱",
+          "value": "避免低价陷阱",
+          "line": 34,
+          "column": 0,
+          "depth": 2
+        },
+        "对于设计师的建议": {
+          "type": "header",
+          "text": "对于设计师的建议",
+          "value": "对于设计师的建议",
+          "line": 38,
+          "column": 0,
+          "depth": 3
+        },
+        "给客户的提示": {
+          "type": "header",
+          "text": "给客户的提示",
+          "value": "给客户的提示",
+          "line": 43,
+          "column": 0,
+          "depth": 3
+        },
+        "结论": {
+          "type": "header",
+          "text": "结论",
+          "value": "结论",
+          "line": 48,
+          "column": 0,
+          "depth": 2
+        }
+      },
+      "children": [],
+      "parent": "42flion6vsanas7ma8apdgc",
+      "data": {}
+    },
+    "1kadaw0m526pe4nigpk54hs": {
+      "id": "1kadaw0m526pe4nigpk54hs",
+      "title": "网站价值几何？",
+      "desc": "",
+      "updated": 1727337100818,
+      "created": 1498148200000,
+      "tags": [
+        "思考"
+      ],
+      "custom": {},
+      "fname": "2017.网站价值几何？",
+      "type": "note",
+      "vault": {
+        "fsPath": "vault"
+      },
+      "contentHash": "1c5382651fae6d1dc1036ec0551ed7a8",
+      "links": [
+        {
+          "type": "frontmatterTag",
+          "from": {
+            "fname": "2017.网站价值几何？",
+            "id": "1kadaw0m526pe4nigpk54hs",
+            "vaultName": "vault"
+          },
+          "value": "tags.思考",
+          "alias": "思考",
+          "xvault": false,
+          "to": {
+            "fname": "tags.思考"
+          }
+        }
+      ],
+      "anchors": {
+        "免费网站": {
+          "type": "header",
+          "text": "免费网站",
+          "value": "免费网站",
+          "line": 13,
+          "column": 0,
+          "depth": 2
+        },
+        "几欧元至几十欧元的网站": {
+          "type": "header",
+          "text": "几欧元至几十欧元的网站",
+          "value": "几欧元至几十欧元的网站",
+          "line": 21,
+          "column": 0,
+          "depth": 2
+        },
+        "您是否真的需要一个专业网站": {
+          "type": "header",
+          "text": "您是否真的需要一个专业网站？",
+          "value": "您是否真的需要一个专业网站",
+          "line": 30,
+          "column": 0,
+          "depth": 2
+        },
+        "网站服务的成本考量": {
+          "type": "header",
+          "text": "网站服务的成本考量",
+          "value": "网站服务的成本考量",
+          "line": 33,
+          "column": 0,
+          "depth": 2
+        },
+        "高端定制网站": {
+          "type": "header",
+          "text": "高端定制网站",
+          "value": "高端定制网站",
+          "line": 38,
+          "column": 0,
+          "depth": 2
+        },
+        "警惕虚高报价": {
+          "type": "header",
+          "text": "警惕虚高报价",
+          "value": "警惕虚高报价",
+          "line": 41,
+          "column": 0,
+          "depth": 2
+        },
+        "结论": {
+          "type": "header",
+          "text": "结论",
+          "value": "结论",
+          "line": 44,
+          "column": 0,
+          "depth": 2
+        }
+      },
+      "children": [],
+      "parent": "42flion6vsanas7ma8apdgc",
+      "data": {}
+    },
+    "0k6y0yd7iz2z13a9acrpydb": {
+      "id": "0k6y0yd7iz2z13a9acrpydb",
+      "title": "如何合理定价建站服务？",
+      "desc": "",
+      "updated": 1727337132610,
+      "created": 1498157200000,
+      "tags": [
+        "思考"
+      ],
+      "custom": {},
+      "fname": "2017.如何合理定价建站服务？",
+      "type": "note",
+      "vault": {
+        "fsPath": "vault"
+      },
+      "contentHash": "0eecdc1eb7c88a6dd6039b91d1744099",
+      "links": [
+        {
+          "type": "frontmatterTag",
+          "from": {
+            "fname": "2017.如何合理定价建站服务？",
+            "id": "0k6y0yd7iz2z13a9acrpydb",
+            "vaultName": "vault"
+          },
+          "value": "tags.思考",
+          "alias": "思考",
+          "xvault": false,
+          "to": {
+            "fname": "tags.思考"
+          }
+        }
+      ],
+      "anchors": {
+        "自由职业者的定价策略揭秘": {
+          "type": "header",
+          "text": "自由职业者的定价策略揭秘",
+          "value": "自由职业者的定价策略揭秘",
+          "line": 9,
+          "column": 0,
+          "depth": 2
+        },
+        "客户的普遍误解": {
+          "type": "header",
+          "text": "客户的普遍误解",
+          "value": "客户的普遍误解",
+          "line": 13,
+          "column": 0,
+          "depth": 2
+        },
+        "自由职业者的真实成本": {
+          "type": "header",
+          "text": "自由职业者的真实成本",
+          "value": "自由职业者的真实成本",
+          "line": 19,
+          "column": 0,
+          "depth": 2
+        },
+        "网站建设成本估算基础": {
+          "type": "header",
+          "text": "网站建设成本估算基础",
+          "value": "网站建设成本估算基础",
+          "line": 27,
+          "column": 0,
+          "depth": 2
+        }
+      },
+      "children": [],
+      "parent": "42flion6vsanas7ma8apdgc",
+      "data": {}
+    },
+    "2obij3czw1d1v00gn5snylt": {
+      "id": "2obij3czw1d1v00gn5snylt",
+      "title": "WordPress 迁移后遇到的问题及解决方案",
+      "desc": "探索WordPress网站迁移后常见问题的原因与解决方案，包括媒体库图片不显示和页面模板不可选的问题，并提供调整PHP配置的详细步骤。",
+      "updated": 1727338072277,
+      "created": 1508880800657,
+      "tags": [
+        "wordpress",
+        "php",
+        "开发",
+        "建站"
+      ],
+      "custom": {},
+      "fname": "2017.WordPress 迁移后遇到的问题及解决方案",
+      "type": "note",
+      "vault": {
+        "fsPath": "vault"
+      },
+      "contentHash": "d18445a453e707043b5af0ee84be6303",
+      "links": [
+        {
+          "type": "frontmatterTag",
+          "from": {
+            "fname": "2017.WordPress 迁移后遇到的问题及解决方案",
+            "id": "2obij3czw1d1v00gn5snylt",
+            "vaultName": "vault"
+          },
+          "value": "tags.wordpress",
+          "alias": "wordpress",
+          "xvault": false,
+          "to": {
+            "fname": "tags.wordpress"
+          }
+        },
+        {
+          "type": "frontmatterTag",
+          "from": {
+            "fname": "2017.WordPress 迁移后遇到的问题及解决方案",
+            "id": "2obij3czw1d1v00gn5snylt",
+            "vaultName": "vault"
+          },
+          "value": "tags.php",
+          "alias": "php",
+          "xvault": false,
+          "to": {
+            "fname": "tags.php"
+          }
+        },
+        {
+          "type": "frontmatterTag",
+          "from": {
+            "fname": "2017.WordPress 迁移后遇到的问题及解决方案",
+            "id": "2obij3czw1d1v00gn5snylt",
+            "vaultName": "vault"
+          },
+          "value": "tags.开发",
+          "alias": "开发",
+          "xvault": false,
+          "to": {
+            "fname": "tags.开发"
+          }
+        },
+        {
+          "type": "frontmatterTag",
+          "from": {
+            "fname": "2017.WordPress 迁移后遇到的问题及解决方案",
+            "id": "2obij3czw1d1v00gn5snylt",
+            "vaultName": "vault"
+          },
+          "value": "tags.建站",
+          "alias": "建站",
+          "xvault": false,
+          "to": {
+            "fname": "tags.建站"
+          }
+        }
+      ],
+      "anchors": {
+        "概述": {
+          "type": "header",
+          "text": "概述",
+          "value": "概述",
+          "line": 12,
+          "column": 0,
+          "depth": 2
+        },
+        "问题一媒体库无图片显示": {
+          "type": "header",
+          "text": "问题一：媒体库无图片显示",
+          "value": "问题一媒体库无图片显示",
+          "line": 15,
+          "column": 0,
+          "depth": 2
+        },
+        "可能的原因": {
+          "type": "header",
+          "text": "可能的原因",
+          "value": "可能的原因",
+          "line": 18,
+          "column": 0,
+          "depth": 3
+        },
+        "问题二页面模板不可选": {
+          "type": "header",
+          "text": "问题二：页面模板不可选",
+          "value": "问题二页面模板不可选",
+          "line": 22,
+          "column": 0,
+          "depth": 2
+        },
+        "解决方案": {
+          "type": "header",
+          "text": "解决方案",
+          "value": "解决方案",
+          "line": 25,
+          "column": 0,
+          "depth": 3
+        },
+        "结语": {
+          "type": "header",
+          "text": "结语",
+          "value": "结语",
+          "line": 36,
+          "column": 0,
+          "depth": 2
+        }
+      },
+      "children": [],
+      "parent": "42flion6vsanas7ma8apdgc",
+      "data": {}
+    },
+    "vsguek05jsxrs3n29u2djmg": {
+      "id": "vsguek05jsxrs3n29u2djmg",
+      "title": "2016 年文章",
+      "desc": "",
+      "updated": 1727342695468,
+      "created": 1727337841049,
+      "custom": {},
+      "fname": "2016",
+      "type": "note",
+      "vault": {
+        "fsPath": "vault"
+      },
+      "contentHash": "3472ea60dd3ddfc282ec4e2a73c7f11f",
+      "links": [],
+      "anchors": {},
+      "children": [
+        "iwxigrdwygj5umbcrk72rqp",
+        "49y747ss65qa4xp6jdvneys"
+      ],
+      "parent": "wn8PE1RhG0znK1alrGFYv",
+      "data": {}
+    },
+    "49y747ss65qa4xp6jdvneys": {
+      "id": "49y747ss65qa4xp6jdvneys",
+      "title": "谁动了我的硬盘？电脑数据容量单位科普入门浅析",
+      "desc": "了解数字存储和二进制系统的基础，探索硬盘数据单位、单位转换以及它们在现实生活中的应用，包括硬盘容量标注差异和网络速度的实际计算。",
+      "updated": 1727338154550,
+      "created": 1457261900000,
+      "tags": [
+        "科普"
+      ],
+      "custom": {},
+      "fname": "2016.谁动了我的硬盘？电脑数据容量单位科普入门浅析",
+      "type": "note",
+      "vault": {
+        "fsPath": "vault"
+      },
+      "contentHash": "e023f45365348a7c5ce9bea447a0c59d",
+      "links": [
+        {
+          "type": "frontmatterTag",
+          "from": {
+            "fname": "2016.谁动了我的硬盘？电脑数据容量单位科普入门浅析",
+            "id": "49y747ss65qa4xp6jdvneys",
+            "vaultName": "vault"
+          },
+          "value": "tags.科普",
+          "alias": "科普",
+          "xvault": false,
+          "to": {
+            "fname": "tags.科普"
+          }
+        }
+      ],
+      "anchors": {
+        "基础概念": {
+          "type": "header",
+          "text": "基础概念",
+          "value": "基础概念",
+          "line": 9,
+          "column": 0,
+          "depth": 2
+        },
+        "硬盘数据单位": {
+          "type": "header",
+          "text": "硬盘数据单位",
+          "value": "硬盘数据单位",
+          "line": 13,
+          "column": 0,
+          "depth": 2
+        },
+        "单位转换": {
+          "type": "header",
+          "text": "单位转换",
+          "value": "单位转换",
+          "line": 17,
+          "column": 0,
+          "depth": 2
+        },
+        "现实生活中的应用": {
+          "type": "header",
+          "text": "现实生活中的应用",
+          "value": "现实生活中的应用",
+          "line": 25,
+          "column": 0,
+          "depth": 2
+        },
+        "硬盘容量": {
+          "type": "header",
+          "text": "硬盘容量",
+          "value": "硬盘容量",
+          "line": 27,
+          "column": 0,
+          "depth": 3
+        },
+        "网络速度": {
+          "type": "header",
+          "text": "网络速度",
+          "value": "网络速度",
+          "line": 31,
+          "column": 0,
+          "depth": 3
+        }
+      },
+      "children": [],
+      "parent": "vsguek05jsxrs3n29u2djmg",
+      "data": {}
+    },
+    "iwxigrdwygj5umbcrk72rqp": {
+      "id": "iwxigrdwygj5umbcrk72rqp",
+      "title": "如何在功能性和灵活性之间找到平衡？——以老版Wiz为知笔记为例",
+      "desc": "",
+      "updated": 1727338110326,
+      "created": 1457289000589,
+      "tags": [
+        "思考",
+        "设计"
+      ],
+      "custom": {},
+      "fname": "2016.如何在功能性和灵活性之间找到平衡？——以老版Wiz为知笔记为例",
+      "type": "note",
+      "vault": {
+        "fsPath": "vault"
+      },
+      "contentHash": "e76070ec6a0919e15e22f11d974dc923",
+      "links": [
+        {
+          "type": "frontmatterTag",
+          "from": {
+            "fname": "2016.如何在功能性和灵活性之间找到平衡？——以老版Wiz为知笔记为例",
+            "id": "iwxigrdwygj5umbcrk72rqp",
+            "vaultName": "vault"
+          },
+          "value": "tags.思考",
+          "alias": "思考",
+          "xvault": false,
+          "to": {
+            "fname": "tags.思考"
+          }
+        },
+        {
+          "type": "frontmatterTag",
+          "from": {
+            "fname": "2016.如何在功能性和灵活性之间找到平衡？——以老版Wiz为知笔记为例",
+            "id": "iwxigrdwygj5umbcrk72rqp",
+            "vaultName": "vault"
+          },
+          "value": "tags.设计",
+          "alias": "设计",
+          "xvault": false,
+          "to": {
+            "fname": "tags.设计"
+          }
+        }
+      ],
+      "anchors": {
+        "个人视角下的功能性与简洁性的权衡": {
+          "type": "header",
+          "text": "个人视角下的功能性与简洁性的权衡",
+          "value": "个人视角下的功能性与简洁性的权衡",
+          "line": 12,
+          "column": 0,
+          "depth": 2
+        },
+        "老版wiz为知笔记的反思": {
+          "type": "header",
+          "text": "老版Wiz为知笔记的反思",
+          "value": "老版wiz为知笔记的反思",
+          "line": 15,
+          "column": 0,
+          "depth": 2
+        },
+        "wiz为知笔记的进化之路": {
+          "type": "header",
+          "text": "Wiz为知笔记的进化之路",
+          "value": "wiz为知笔记的进化之路",
+          "line": 18,
+          "column": 0,
+          "depth": 2
+        },
+        "结语": {
+          "type": "header",
+          "text": "结语",
+          "value": "结语",
+          "line": 21,
+          "column": 0,
+          "depth": 2
+        }
+      },
+      "children": [],
+      "parent": "vsguek05jsxrs3n29u2djmg",
+      "data": {}
+    }
+  },
+  "domains": [
+    {
+      "id": "wn8PE1RhG0znK1alrGFYv",
+      "title": "伟's 博客首页",
+      "desc": "",
+      "updated": 1727342507885,
+      "created": 1631901573363,
+      "custom": {
+        "nav_order": 0,
+        "permalink": "/"
+      },
+      "fname": "root",
+      "type": "note",
+      "vault": {
+        "fsPath": "vault"
+      },
+      "contentHash": "ba3147c578c97d5c5d78f280e5de46ff",
+      "links": [],
+      "anchors": {
+        "todo-这里准备收集我自己的作品的介绍": {
+          "type": "header",
+          "text": "TODO 这里准备收集我自己的作品的介绍",
+          "value": "todo-这里准备收集我自己的作品的介绍",
+          "line": 12,
+          "column": 0,
+          "depth": 2
+        }
+      },
+      "children": [
+        "vsguek05jsxrs3n29u2djmg",
+        "42flion6vsanas7ma8apdgc",
+        "cyjg2pr9blmc62o08wkqi7h",
+        "jj9rnjwpe2h2c5x2u03wnkc",
+        "05qorc5h89z69ikhuezjfl4"
+      ],
+      "parent": null,
+      "data": {},
+      "body": "\n欢迎来到我的笔记库, 这里是我写的一些文章\n\n上面的搜索框可以直接搜索标题, 也可以用英文 ? 开头加上内容进行全文搜索.\n\n## TODO 这里准备收集我自己的作品的介绍\n- [CLI Param Concat](https://github.com/LiangWei88/cli-param-concat#readme)\n- [原子css](https://gitee.com/imyyliang/basscss)\n- [前端输入法词库](https://github.com/LiangWei88/WebDevDictCN)\n\n\n"
+    }
+  ],
+  "noteIndex": {
+    "id": "wn8PE1RhG0znK1alrGFYv",
+    "title": "伟's 博客首页",
+    "desc": "",
+    "updated": 1727342507885,
+    "created": 1631901573363,
+    "custom": {
+      "nav_order": 0,
+      "permalink": "/"
+    },
+    "fname": "root",
+    "type": "note",
+    "vault": {
+      "fsPath": "vault"
+    },
+    "contentHash": "ba3147c578c97d5c5d78f280e5de46ff",
+    "links": [],
+    "anchors": {
+      "todo-这里准备收集我自己的作品的介绍": {
+        "type": "header",
+        "text": "TODO 这里准备收集我自己的作品的介绍",
+        "value": "todo-这里准备收集我自己的作品的介绍",
+        "line": 12,
+        "column": 0,
+        "depth": 2
+      }
+    },
+    "children": [
+      "vsguek05jsxrs3n29u2djmg",
+      "42flion6vsanas7ma8apdgc",
+      "cyjg2pr9blmc62o08wkqi7h",
+      "jj9rnjwpe2h2c5x2u03wnkc",
+      "05qorc5h89z69ikhuezjfl4"
+    ],
+    "parent": null,
+    "data": {},
+    "body": "\n欢迎来到我的笔记库, 这里是我写的一些文章\n\n上面的搜索框可以直接搜索标题, 也可以用英文 ? 开头加上内容进行全文搜索.\n\n## TODO 这里准备收集我自己的作品的介绍\n- [CLI Param Concat](https://github.com/LiangWei88/cli-param-concat#readme)\n- [原子css](https://gitee.com/imyyliang/basscss)\n- [前端输入法词库](https://github.com/LiangWei88/WebDevDictCN)\n\n\n"
+  },
+  "vaults": [
+    {
+      "fsPath": "vault"
+    }
+  ]
+}

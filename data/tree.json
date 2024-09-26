@@ -1,0 +1,223 @@
+{
+  "roots": [
+    {
+      "key": "vsguek05jsxrs3n29u2djmg",
+      "title": "2016 年文章",
+      "icon": null,
+      "hasTitleNumberOutlined": false,
+      "vaultName": "vault",
+      "children": [
+        {
+          "key": "iwxigrdwygj5umbcrk72rqp",
+          "title": "如何在功能性和灵活性之间找到平衡？——以老版Wiz为知笔记为例",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "vault",
+          "children": []
+        },
+        {
+          "key": "49y747ss65qa4xp6jdvneys",
+          "title": "谁动了我的硬盘？电脑数据容量单位科普入门浅析",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "vault",
+          "children": []
+        }
+      ]
+    },
+    {
+      "key": "42flion6vsanas7ma8apdgc",
+      "title": "2017 年文章",
+      "icon": null,
+      "hasTitleNumberOutlined": false,
+      "vaultName": "vault",
+      "children": [
+        {
+          "key": "2obij3czw1d1v00gn5snylt",
+          "title": "WordPress 迁移后遇到的问题及解决方案",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "vault",
+          "children": []
+        },
+        {
+          "key": "0k6y0yd7iz2z13a9acrpydb",
+          "title": "如何合理定价建站服务？",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "vault",
+          "children": []
+        },
+        {
+          "key": "1kadaw0m526pe4nigpk54hs",
+          "title": "网站价值几何？",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "vault",
+          "children": []
+        },
+        {
+          "key": "bsdjcehdkbqi1lz6vv8ghax",
+          "title": "网页设计定价：揭秘背后的故事",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "vault",
+          "children": []
+        }
+      ]
+    },
+    {
+      "key": "cyjg2pr9blmc62o08wkqi7h",
+      "title": "2023 年文章",
+      "icon": null,
+      "hasTitleNumberOutlined": false,
+      "vaultName": "vault",
+      "children": [
+        {
+          "key": "vxc93m7elob9g301aua90nx",
+          "title": "Vue-Admin-Work 运行时 Codemirror 错误解决方案",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "vault",
+          "children": []
+        },
+        {
+          "key": "z1g32namvhye08f52cerm6f",
+          "title": "前端 Vue 基本功自测",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "vault",
+          "children": []
+        }
+      ]
+    },
+    {
+      "key": "jj9rnjwpe2h2c5x2u03wnkc",
+      "title": "2024 年文章",
+      "icon": null,
+      "hasTitleNumberOutlined": false,
+      "vaultName": "vault",
+      "children": [
+        {
+          "key": "5tby10aumcvamgjobrozhgm",
+          "title": "鸿蒙HarmonyOS开发高级认证知识点总结",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "vault",
+          "children": []
+        }
+      ]
+    },
+    {
+      "key": "05qorc5h89z69ikhuezjfl4",
+      "title": "Tags",
+      "icon": "numberOutlined",
+      "hasTitleNumberOutlined": false,
+      "vaultName": "vault",
+      "children": [
+        {
+          "key": "6xrqi3o92dyo030yxcy2w4u",
+          "title": "Vue",
+          "icon": null,
+          "hasTitleNumberOutlined": true,
+          "vaultName": "vault",
+          "children": []
+        },
+        {
+          "key": "qckkp648x79eibufdx7ldrd",
+          "title": "前端",
+          "icon": null,
+          "hasTitleNumberOutlined": true,
+          "vaultName": "vault",
+          "children": []
+        },
+        {
+          "key": "x6h3yqz3zv0nmgq9dw0olq1",
+          "title": "开发",
+          "icon": null,
+          "hasTitleNumberOutlined": true,
+          "vaultName": "vault",
+          "children": []
+        },
+        {
+          "key": "ak8w5k8m9mwlnap1uno5wm1",
+          "title": "思考",
+          "icon": null,
+          "hasTitleNumberOutlined": true,
+          "vaultName": "vault",
+          "children": []
+        },
+        {
+          "key": "wumpk0duqthr2lqhi3j873s",
+          "title": "科普",
+          "icon": null,
+          "hasTitleNumberOutlined": true,
+          "vaultName": "vault",
+          "children": []
+        },
+        {
+          "key": "v1zm9rr62uhe3qr6ksko45c",
+          "title": "设计",
+          "icon": null,
+          "hasTitleNumberOutlined": true,
+          "vaultName": "vault",
+          "children": []
+        },
+        {
+          "key": "teew81jj72hor57c4qz3qz0",
+          "title": "鸿蒙",
+          "icon": null,
+          "hasTitleNumberOutlined": true,
+          "vaultName": "vault",
+          "children": []
+        }
+      ]
+    }
+  ],
+  "child2parent": {
+    "vsguek05jsxrs3n29u2djmg": null,
+    "iwxigrdwygj5umbcrk72rqp": "vsguek05jsxrs3n29u2djmg",
+    "49y747ss65qa4xp6jdvneys": "vsguek05jsxrs3n29u2djmg",
+    "42flion6vsanas7ma8apdgc": null,
+    "2obij3czw1d1v00gn5snylt": "42flion6vsanas7ma8apdgc",
+    "0k6y0yd7iz2z13a9acrpydb": "42flion6vsanas7ma8apdgc",
+    "1kadaw0m526pe4nigpk54hs": "42flion6vsanas7ma8apdgc",
+    "bsdjcehdkbqi1lz6vv8ghax": "42flion6vsanas7ma8apdgc",
+    "cyjg2pr9blmc62o08wkqi7h": null,
+    "vxc93m7elob9g301aua90nx": "cyjg2pr9blmc62o08wkqi7h",
+    "z1g32namvhye08f52cerm6f": "cyjg2pr9blmc62o08wkqi7h",
+    "jj9rnjwpe2h2c5x2u03wnkc": null,
+    "5tby10aumcvamgjobrozhgm": "jj9rnjwpe2h2c5x2u03wnkc",
+    "05qorc5h89z69ikhuezjfl4": null,
+    "6xrqi3o92dyo030yxcy2w4u": "05qorc5h89z69ikhuezjfl4",
+    "qckkp648x79eibufdx7ldrd": "05qorc5h89z69ikhuezjfl4",
+    "x6h3yqz3zv0nmgq9dw0olq1": "05qorc5h89z69ikhuezjfl4",
+    "ak8w5k8m9mwlnap1uno5wm1": "05qorc5h89z69ikhuezjfl4",
+    "wumpk0duqthr2lqhi3j873s": "05qorc5h89z69ikhuezjfl4",
+    "v1zm9rr62uhe3qr6ksko45c": "05qorc5h89z69ikhuezjfl4",
+    "teew81jj72hor57c4qz3qz0": "05qorc5h89z69ikhuezjfl4"
+  },
+  "notesLabelById": {
+    "vsguek05jsxrs3n29u2djmg": "2016 年文章",
+    "iwxigrdwygj5umbcrk72rqp": "如何在功能性和灵活性之间找到平衡？——以老版Wiz为知笔记为例",
+    "49y747ss65qa4xp6jdvneys": "谁动了我的硬盘？电脑数据容量单位科普入门浅析",
+    "42flion6vsanas7ma8apdgc": "2017 年文章",
+    "2obij3czw1d1v00gn5snylt": "WordPress 迁移后遇到的问题及解决方案",
+    "0k6y0yd7iz2z13a9acrpydb": "如何合理定价建站服务？",
+    "1kadaw0m526pe4nigpk54hs": "网站价值几何？",
+    "bsdjcehdkbqi1lz6vv8ghax": "网页设计定价：揭秘背后的故事",
+    "cyjg2pr9blmc62o08wkqi7h": "2023 年文章",
+    "vxc93m7elob9g301aua90nx": "Vue-Admin-Work 运行时 Codemirror 错误解决方案",
+    "z1g32namvhye08f52cerm6f": "前端 Vue 基本功自测",
+    "jj9rnjwpe2h2c5x2u03wnkc": "2024 年文章",
+    "5tby10aumcvamgjobrozhgm": "鸿蒙HarmonyOS开发高级认证知识点总结",
+    "05qorc5h89z69ikhuezjfl4": "Tags",
+    "6xrqi3o92dyo030yxcy2w4u": "Vue",
+    "qckkp648x79eibufdx7ldrd": "前端",
+    "x6h3yqz3zv0nmgq9dw0olq1": "开发",
+    "ak8w5k8m9mwlnap1uno5wm1": "思考",
+    "wumpk0duqthr2lqhi3j873s": "科普",
+    "v1zm9rr62uhe3qr6ksko45c": "设计",
+    "teew81jj72hor57c4qz3qz0": "鸿蒙"
+  }
+}
