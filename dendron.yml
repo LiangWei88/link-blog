@@ -10,15 +10,15 @@ commands:
             bubbleUpCreateNew: true
             fuzzThreshold: 0.2
             vaultSelectionModeOnCreate: smart
-    insertNote:
-        initialValue: templates
     insertNoteLink:
         aliasMode: none
         enableMultiSelect: false
     insertNoteIndex:
         enableMarker: false
     randomNote: {}
-    copyNoteLink: {}
+    copyNoteLink: {
+      aliasMode: title
+    }
 workspace:
     vaults:
         -
@@ -81,9 +81,9 @@ preview:
     enableFrontmatterTags: true
     enableHashesForFMTags: false
 publishing:
+    searchMode: lookup
     enableFMTitle: true
     enableNoteTitleForLink: true
-    enableMermaid: true
     # enablePrettyRefs: true
     enableKatex: true
     assetsPrefix: /link-blog
@@ -103,7 +103,7 @@ publishing:
     writeStubs: false
     seo:
         title: 伟's Blog
-        description: 个人知识仓库
+        description: 梁伟的个人知识仓库
     github:
         enableEditLink: true
         editLinkText: Edit this page on GitHub
@@ -112,4 +112,3 @@ publishing:
     enablePrettyLinks: true
     theme: custom
     enableTaskNotes: true
-    templateVersion: 0.97.0
