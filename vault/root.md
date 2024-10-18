@@ -2,7 +2,7 @@
 id: wn8PE1RhG0znK1alrGFYv
 title: 伟's 博客首页
 desc: ''
-updated: 1729233638017
+updated: 1729236746866
 created: 1631901573363
 ---
 
@@ -31,6 +31,8 @@ created: 1631901573363
 - [[2024.Readme驱动开发（RDD）实践笔记]]
 - [[2024.个人笔记软件思考 - Obsidian vs logseq 和其他]]
 - [[2024.鸿蒙HarmonyOS开发高级认证知识点总结]]
+- [[2024.Docker镜像拉取困难？看这里！阿里云部署Dashy的成功案例]]
+- [[2024.打造高效的个人知识管理系统：我的思考与实践]]
 
 ## TODO 这里准备收集我自己的作品的介绍
 - [CLI Param Concat](https://github.com/LiangWei88/cli-param-concat#readme)
