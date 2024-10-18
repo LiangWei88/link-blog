@@ -1,34 +1,24 @@
-# Dendron Workspace Template for GitHub Pages publishing (via GitHub Actions)
+# Dendron 工作空间模板，用于通过 GitHub Actions 发布到 GitHub Pages
 
-- [View the Demo Website](https://dendronhq.github.io/template.publish.github-action/)
+## 个人笔记
+- 分类1.分类2.文章名 这样的形式来做分层
+- ctrl + l 可以打开或者新建一个笔记
+- 大部分菜单功能可以通过 ctrl + shift + p 来查找
 
-This project is a minimal setup template for publishing a Dendron Workspace to GitHub Pages via GitHub Actions.
+- [查看演示网站](https://dendronhq.github.io/template.publish.github-action/)
 
-Directions on how to use this template are mentioned in:
-- [Dendron Docs: Publishing with GitHub Pages via GitHub Actions](https://wiki.dendron.so/notes/FnK2ws6w1uaS1YzBUY3BR/)
+这个项目是一个最小化的设置模板，用于通过 GitHub Actions 将 Dendron 工作空间发布到 GitHub Pages。
 
-For directions on how to migrate and/or upgrade to the latest version of Dendron:
-- [Dendron Publishing: Migrating and Upgrading](https://wiki.dendron.so/notes/rYbs1qLh9VJBXCJlSzMt4/)
+如何使用这个模板的说明在以下位置提到：
+- [Dendron 文档：通过 GitHub Actions 发布到 GitHub Pages](https://wiki.dendron.so/notes/FnK2ws6w1uaS1YzBUY3BR/)
 
-## Other Publishing Paths
+有关如何迁移和/或升级到最新版本的 Dendron 的说明：
+- [Dendron 发布：迁移和升级](https://wiki.dendron.so/notes/rYbs1qLh9VJBXCJlSzMt4/)
 
-- [Share Your Notes Online: Publish Dendron with Netlify and GitHub](https://blog.dendron.so/notes/7h7zZkjF4Yqz8XSrHS1je)
-- [Dendron Docs: Publishing with GitHub Pages (**WITHOUT** GitHub Actions)](https://wiki.dendron.so/notes/yg3EL1x9fEe4NMqxUC3jP/)
-  - We recommend going the GitHub Actions route. If you don't use GitHub Actions, it requires additional steps and maintenance.
+## 相关
 
-## Related
-
-* [Dendron Getting Started Guide](https://wiki.dendron.so/notes/678c77d9-ef2c-4537-97b5-64556d6337f1/)
-* [Dendron Publishing Guide](https://wiki.dendron.so/notes/4ushYTDoX0TYQ1FDtGQSg/)
-* [Dendron FAQ](https://wiki.dendron.so/notes/683740e3-70ce-4a47-a1f4-1f140e80b558/)
-* [Dendron Concepts](https://wiki.dendron.so/notes/c6fd6bc4-7f75-4cbb-8f34-f7b99bfe2d50/)
-* [GitHub Pages Docs](https://docs.github.com/en/pages)
-
-## Dendron Community
-
-* Join [Dendron on Discord](https://link.dendron.so/discord)
-* Follow [Dendron on Twitter](https://link.dendron.so/twitter)
-* Follow [Dendron on Mastodon](https://link.dendron.so/mastodon)
-* Join the [Dendron Newsletter](https://link.dendron.so/newsletter)
-* Register for [Dendron Events on Luma](https://link.dendron.so/luma)
-* Checkout [Dendron on GitHub](https://link.dendron.so/github)
+* [Dendron 快速入门指南](https://wiki.dendron.so/notes/678c77d9-ef2c-4537-97b5-64556d6337f1/) 
+* [Dendron 发布指南](https://wiki.dendron.so/notes/4ushYTDoX0TYQ1FDtGQSg/) 
+* [Dendron 常见问题解答](https://wiki.dendron.so/notes/683740e3-70ce-4a47-a1f4-1f140e80b558/) 
+* [Dendron 概念](https://wiki.dendron.so/notes/c6fd6bc4-7f75-4cbb-8f34-f7b99bfe2d50/) 
+* [GitHub Pages 文档](https://docs.github.com/en/pages) 
