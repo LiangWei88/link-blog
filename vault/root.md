@@ -2,7 +2,7 @@
 id: wn8PE1RhG0znK1alrGFYv
 title: 伟's 博客首页
 desc: ''
-updated: 1729236746866
+updated: 1729655609915
 created: 1631901573363
 ---
 
@@ -33,6 +33,8 @@ created: 1631901573363
 - [[2024.鸿蒙HarmonyOS开发高级认证知识点总结]]
 - [[2024.Docker镜像拉取困难？看这里！阿里云部署Dashy的成功案例]]
 - [[2024.打造高效的个人知识管理系统：我的思考与实践]]
+- [[2024.SQLite 数据库备份工具 README]]
+- [[2024.使用 AI 辅助开发阿里云 OSS 自动备份工具及监控功能]]
 
 ## TODO 这里准备收集我自己的作品的介绍
 - [CLI Param Concat](https://github.com/LiangWei88/cli-param-concat#readme)
