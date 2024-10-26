@@ -2,7 +2,7 @@
 id: wn8PE1RhG0znK1alrGFYv
 title: 伟's 博客首页
 desc: ''
-updated: 1729909314037
+updated: 1729909395323
 created: 1631901573363
 ---
 **找工作 ing**
@@ -11,7 +11,7 @@ created: 1631901573363
 
 ### 开发技能
 
-- **前端框架**：精通 Vue.js（包括 Vue2 和 Vue3）、微信原生小程序、uniapp
+- **前端框架**：精通 Vue.js（包括 Vue2 和 Vue3）、微信原生小程序、uniapp 以及鸿蒙 HarmonyOS next 开发
 - **后端技术**：熟练使用 Node.js、JavaScript、CSS、HTML
 - **预处理器**：熟练使用 Sass 和 Less
 - **工具与构建**：熟练使用 WebSocket、Webpack、Vite、鸿蒙 ArkTS 和 ArkUI
