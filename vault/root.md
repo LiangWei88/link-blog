@@ -2,7 +2,7 @@
 id: wn8PE1RhG0znK1alrGFYv
 title: 伟's 博客首页
 desc: ''
-updated: 1729906746613
+updated: 1729907200982
 created: 1631901573363
 ---
 
@@ -37,6 +37,10 @@ created: 1631901573363
 ### SQLite数据库备份工具
 [Gitee链接](https://gitee.com/imyyliang/sqlite-database-backup-tool)  
 一个自动备份SQLite数据库文件的解决方案，它提供了一个简单的Web界面，方便用户查看备份记录和管理数据库备份状态。该项目通过定时扫描和备份.db文件，确保数据的安全性和完整性。
+
+### Chrome 标签页AI分类插件
+[Gitee链接](https://gitee.com/imyyliang/tab-auto-group)  
+一款浏览器扩展程序，它通过采用本地AI大模型技术，如Ollama，自动为您的浏览器标签页进行智能分组，极大地提升了用户的浏览效率和体验。本插件不仅能够根据网页内容自动推荐合理的分组，还支持用户手动调整和管理标签，确保了灵活性和个性化。同时保护用户隐私，避免了将数据发送到外部服务器，从而无需依赖外部API密钥。
 
 ### CLI Param Concat 命令参数拼接管理工具
 [GitHub链接](https://github.com/LiangWei88/cli-param-concat#readme)  
@@ -95,7 +99,9 @@ Basscss，一个轻量级的CSS工具库，提供无副作用的模块化样式�
 WebDevDictCN 是一个专为前端工程师和程序员设计的搜狗输入法词库，整合了1000+个与前端开发、编程和计算机相关的专业术语，旨在提高输入效率和准确性。它支持直接导入搜狗输入法，也兼容其他输入法，如讯飞，通过简单的编辑和导入操作即可使用。
 
 
-# TODO
+# TODO 待编写介绍
+- 2018 法律黑客松广州赛区亚军
+- 断食记录小程序
 - github 状态
 - gitee 标签
 - npm 标签
