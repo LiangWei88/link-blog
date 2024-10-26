@@ -2,7 +2,7 @@
 id: wn8PE1RhG0znK1alrGFYv
 title: 伟's 博客首页
 desc: ''
-updated: 1729909837570
+updated: 1729910136622
 created: 1631901573363
 ---
 **找工作 ing**
@@ -79,7 +79,7 @@ created: 1631901573363
     - 备注：网站应该已经改版
   - **Luxaword.com**
     - 巴黎免税店在线商店
-    - 负责前端修改和 Google 广告分析和优化
+    - 负责前端修改, SEO 优化和 Google 广告分析和优化
 
 **中国部分**
 ### 2017-2019
