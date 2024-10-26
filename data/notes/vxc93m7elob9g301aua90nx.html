@@ -1,0 +1,77 @@
+<h1 id="vue-admin-work-运行时-codemirror-错误解决方案">Vue-Admin-Work 运行时 Codemirror 错误解决方案<a aria-hidden="true" class="anchor-heading icon-link" href="#vue-admin-work-运行时-codemirror-错误解决方案"></a></h1>
+<p>在使用 <code>vue-admin-work</code> 的 Vue2 版本时，你可能会遇到与 <code>Codemirror</code> 相关的错误。本文将指导你如何解决这一问题，并提供一种长久的解决方案。</p>
+<h2 id="报错信息">报错信息<a aria-hidden="true" class="anchor-heading icon-link" href="#报错信息"></a></h2>
+<p>当你尝试运行项目时，可能会看到如下依赖缺失的错误：</p>
+<pre><code>These dependencies were not found:
+
+* codemirror/addon/display/fullscreen.js in ./node_modules/simplemde/src/js/simplemde.js
+* codemirror/addon/display/placeholder.js in ./node_modules/simplemde/src/js/simplemde.js
+* codemirror/addon/edit/continuelist.js in ./node_modules/simplemde/src/js/simplemde.js
+* codemirror/addon/mode/overlay.js in ./node_modules/simplemde/src/js/simplemde.js
+* codemirror/addon/selection/mark-selection.js in ./node_modules/simplemde/src/js/simplemde.js
+* codemirror/mode/gfm/gfm.js in ./node_modules/simplemde/src/js/simplemde.js
+* codemirror/mode/markdown/markdown.js in ./node_modules/simplemde/src/js/simplemde.js
+* codemirror/mode/xml/xml.js in ./node_modules/simplemde/src/js/simplemde.js
+</code></pre>
+<h2 id="问题原因">问题原因<a aria-hidden="true" class="anchor-heading icon-link" href="#问题原因"></a></h2>
+<p>该框架使用了 <code>simplemde</code> 库，而这个库已经很久没有更新。由于其依赖版本定义中使用了通配符 <code>*</code>，导致安装时自动选择了最新版本的依赖，从而产生了兼容性问题。如果你使用的是 <code>npm</code> 并且有 <code>package-lock.json</code> 文件锁定版本，则可能不会出现此问题。但如果你使用 <code>yarn</code> 或 <code>pnpm</code> 等其他包管理工具，它们会安装最新的依赖，从而引发错误。</p>
+<h2 id="解决方案">解决方案<a aria-hidden="true" class="anchor-heading icon-link" href="#解决方案"></a></h2>
+<h3 id="简单方法">简单方法<a aria-hidden="true" class="anchor-heading icon-link" href="#简单方法"></a></h3>
+<ol>
+<li>删除现有的 <code>node_modules</code> 文件夹。</li>
+<li>使用 <code>npm i</code> 重新安装所有依赖。</li>
+<li>在后续开发中始终使用 <code>npm</code> 来管理你的依赖。</li>
+</ol>
+<pre class="language-shell"><code class="language-shell"><span class="token function">rm</span> -rf node_modules
+<span class="token function">npm</span> i
+</code></pre>
+<h3 id="长久之计">长久之计<a aria-hidden="true" class="anchor-heading icon-link" href="#长久之计"></a></h3>
+<p><code>simplemde</code> 库已被废弃，你可以采用修改后的替代版本 <code>simplemde-w</code>。这个版本对依赖进行了更新，确保与当前环境兼容。</p>
+<h4 id="安装">安装<a aria-hidden="true" class="anchor-heading icon-link" href="#安装"></a></h4>
+<p>根据你使用的包管理工具选择对应的命令：</p>
+<ul>
+<li>
+<p><strong>npm</strong></p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">npm</span> uninstall simplemde
+<span class="token function">npm</span> i simplemde-w
+</code></pre>
+</li>
+<li>
+<p><strong>yarn</strong></p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">yarn</span> remove simplemde
+<span class="token function">yarn</span> <span class="token function">add</span> simplemde-w
+</code></pre>
+</li>
+<li>
+<p><strong>pnpm</strong></p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">pnpm</span> remove simplemde
+<span class="token function">pnpm</span> <span class="token function">add</span> simplemde-w
+</code></pre>
+</li>
+</ul>
+<h4 id="使用">使用<a aria-hidden="true" class="anchor-heading icon-link" href="#使用"></a></h4>
+<p>全局搜索并替换引入 <code>simplemde</code> 的地方为 <code>simplemde-w</code>。</p>
+<p>例如：</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token comment">// 旧代码</span>
+<span class="token comment">// import 'simplemde/dist/simplemde.min.css'</span>
+<span class="token comment">// import SimpleMDE from 'simplemde'</span>
+
+<span class="token comment">// 新代码</span>
+<span class="token keyword module">import</span> <span class="token string">'simplemde-w/dist/simplemde.min.css'</span>
+<span class="token keyword module">import</span> <span class="token imports"><span class="token maybe-class-name">SimpleMDE</span></span> <span class="token keyword module">from</span> <span class="token string">'simplemde-w'</span>
+</code></pre>
+<p>希望这些步骤能够帮助你解决问题。如果还有其他疑问或更好的解决方案，请在评论区分享你的经验！</p>
+<hr>
+<h2 id="tags">Tags<a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a></h2>
+<ol>
+<li><a class="color-tag" style="--tag-color: #5fa052;" href="/notes/6xrqi3o92dyo030yxcy2w4u">vue</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">vue2 (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">vue-admin-work (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">codemirror (Private)</a></li>
+<li><a class="color-tag" style="--tag-color: #fdc1c5;" href="/notes/x6h3yqz3zv0nmgq9dw0olq1">开发</a></li>
+</ol>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/">伟's 博客首页</a></li>
+</ul>

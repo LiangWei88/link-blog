@@ -1,0 +1,97 @@
+<h1 id="前端-vue-基本功自测">前端 Vue 基本功自测<a aria-hidden="true" class="anchor-heading icon-link" href="#前端-vue-基本功自测"></a></h1>
+<h1 id="目的">目的<a aria-hidden="true" class="anchor-heading icon-link" href="#目的"></a></h1>
+<p>下面都是一些考察 vue 使用的题目, 能写出来不一定能找到工作, 但是不会写, 证明你没有学会 vue.</p>
+<h1 id="题目">题目<a aria-hidden="true" class="anchor-heading icon-link" href="#题目"></a></h1>
+<ul>
+<li>编写一个计数器的功能，并能够实现加减操作。</li>
+<li>编写表格，并实现分页功能。要求使用 element-ui 的表格组件，表格内容先写死一百条假数据。</li>
+<li>编写一个导航栏，并能够实现在不同页面之间的跳转。要求使用 vue-router 嵌套路由实现。并在跳转之间传递和获取参数。</li>
+<li>编写购物车功能，预先写好假数据，并能够实现删除商品、数量调整等功能。要求使用 Vuex 管理共享数据。</li>
+<li>编写留言板功能。要求使用 Axios 发送 HTTP 请求获取留言数据，并能够实现新增留言、删除留言等功能。(下面有数据模拟说明)</li>
+<li>编写一个 Vue2 组件，实现一个简单的日历功能。要求使用 element-ui 的日期选择器组件，并能够动态传入默认日期、日期范围功能。</li>
+</ul>
+<h1 id="配套数据">配套数据<a aria-hidden="true" class="anchor-heading icon-link" href="#配套数据"></a></h1>
+<p>附上使用 json-server 模拟留言板接口的方法</p>
+<ol>
+<li>安装json-server：</li>
+</ol>
+<pre><code>npm install -g json-server
+</code></pre>
+<ol start="2">
+<li>创建一个名为<code>db.json</code>的文件，用于存储模拟的留言数据。在项目根目录下创建这个文件，并添加一些初始数据：</li>
+</ol>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"messages"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span> <span class="token property">"id"</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token property">"text"</span><span class="token operator">:</span> <span class="token string">"第一条留言"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span> <span class="token property">"id"</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token property">"text"</span><span class="token operator">:</span> <span class="token string">"第二条留言"</span> <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<ol start="3">
+<li>启动json-server来模拟后台数据：</li>
+</ol>
+<pre><code>json-server --watch db.json --port 3000
+</code></pre>
+<p>这将在端口3000上启动json-server，并使用<code>db.json</code>文件中的数据。</p>
+<p>以下是用于留言板功能的基本接口文档，这些接口是与json-server模拟的后台数据进行交互的。</p>
+<h4 id="获取留言列表">获取留言列表<a aria-hidden="true" class="anchor-heading icon-link" href="#获取留言列表"></a></h4>
+<ul>
+<li><strong>URL</strong>: <code>GET /messages</code></li>
+<li><strong>描述</strong>: 获取所有留言的列表</li>
+<li><strong>响应示例</strong>:</li>
+</ul>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    <span class="token property">"id"</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token property">"text"</span><span class="token operator">:</span> <span class="token string">"第一条留言"</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    <span class="token property">"id"</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+    <span class="token property">"text"</span><span class="token operator">:</span> <span class="token string">"第二条留言"</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+</code></pre>
+<h4 id="添加新留言">添加新留言<a aria-hidden="true" class="anchor-heading icon-link" href="#添加新留言"></a></h4>
+<ul>
+<li><strong>URL</strong>: <code>POST /messages</code></li>
+<li><strong>描述</strong>: 添加新留言</li>
+<li><strong>请求体</strong>:</li>
+</ul>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"text"</span><span class="token operator">:</span> <span class="token string">"新留言内容"</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<ul>
+<li><strong>响应示例</strong>:</li>
+</ul>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"id"</span><span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+  <span class="token property">"text"</span><span class="token operator">:</span> <span class="token string">"新留言内容"</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="删除留言">删除留言<a aria-hidden="true" class="anchor-heading icon-link" href="#删除留言"></a></h4>
+<ul>
+<li><strong>URL</strong>: <code>DELETE /messages/:id</code></li>
+<li><strong>描述</strong>: 删除指定ID的留言</li>
+<li><strong>示例</strong>:</li>
+</ul>
+<pre><code>DELETE /messages/2
+</code></pre>
+<ul>
+<li><strong>响应示例</strong>:</li>
+</ul>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span><span class="token punctuation">}</span>
+</code></pre>
+<p>这些接口允许你通过HTTP请求来获取留言列表、添加新留言和删除指定ID的留言。</p>
+<hr>
+<h2 id="tags">Tags<a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a></h2>
+<ol>
+<li><a class="color-tag" style="--tag-color: #5fa052;" href="/notes/6xrqi3o92dyo030yxcy2w4u">vue</a></li>
+<li><a class="color-tag" style="--tag-color: #fdc1c5;" href="/notes/x6h3yqz3zv0nmgq9dw0olq1">开发</a></li>
+<li><a class="color-tag" style="--tag-color: #7a5901;" href="/notes/qckkp648x79eibufdx7ldrd">前端</a></li>
+</ol>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/">伟's 博客首页</a></li>
+</ul>
