@@ -1,0 +1,476 @@
+<h1 id="react-源码分析---第一部分架构说明">React 源码分析 - 第一部分架构说明<a aria-hidden="true" class="anchor-heading icon-link" href="#react-源码分析---第一部分架构说明"></a></h1>
+<h1 id="从零开始搭建react源码工程讲座讲义">从零开始搭建React源码工程讲座讲义<a aria-hidden="true" class="anchor-heading icon-link" href="#从零开始搭建react源码工程讲座讲义"></a></h1>
+<p>一个培训机构面试的试讲讲义</p>
+<p>录课的时候发现以下问题, 但是代码仓库是全的</p>
+<p>用的话记得重头跑一遍来查漏补缺</p>
+<blockquote>
+<ul>
+<li>babel 安装有问题</li>
+<li>创建文件路径有问题</li>
+<li>react index.ts 演示代码代码没有贴</li>
+</ul>
+</blockquote>
+<p>代码库:</p>
+<p><a href="https://gitee.com/imyyliang/react-clone">https://gitee.com/imyyliang/react-clone</a></p>
+<h2 id="课程目标">课程目标<a aria-hidden="true" class="anchor-heading icon-link" href="#课程目标"></a></h2>
+<p>本课程旨在带领学员从零开始搭建一个与React官方工程结构相近的源码工程。我们将使用Rollup进行编译打包，Jest进行测试，pnpm进行包管理，并搭建一个monorepo结构的多包工程。课程将涵盖以下内容：</p>
+<ol>
+<li>项目初始化与目录结构搭建</li>
+<li>配置TypeScript与ESLint</li>
+<li>使用Rollup进行打包</li>
+<li>使用Jest进行单元测试</li>
+<li>搭建monorepo结构并处理模块间依赖</li>
+<li>创建示例页面并实现热更新</li>
+</ol>
+<h2 id="课程大纲">课程大纲<a aria-hidden="true" class="anchor-heading icon-link" href="#课程大纲"></a></h2>
+<h3 id="1-项目初始化与目录结构搭建">1. 项目初始化与目录结构搭建<a aria-hidden="true" class="anchor-heading icon-link" href="#1-项目初始化与目录结构搭建"></a></h3>
+<h4 id="11-创建项目">1.1 创建项目<a aria-hidden="true" class="anchor-heading icon-link" href="#11-创建项目"></a></h4>
+<p>首先，我们创建一个新的项目目录并初始化项目。</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">mkdir</span> react-clone
+<span class="token builtin class-name">cd</span> react-clone
+<span class="token function">pnpm</span> init
+<span class="token function">git</span> init
+<span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>
+<span class="token function">git</span> commit -m <span class="token string">'初始化'</span>
+</code></pre>
+<h4 id="12-准备文件夹和文件">1.2 准备文件夹和文件<a aria-hidden="true" class="anchor-heading icon-link" href="#12-准备文件夹和文件"></a></h4>
+<p>接下来，我们创建项目的目录结构，并为每个模块准备必要的文件。</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">mkdir</span> packages scripts
+<span class="token function">touch</span> eslint.config.js
+
+<span class="token builtin class-name">cd</span> packages
+<span class="token function">mkdir</span> react react-dom scheduler
+<span class="token function">mkdir</span> react/src
+<span class="token function">mkdir</span> react/src/__test__
+<span class="token function">touch</span> react/src/index.ts react/src/__test__/index.test.ts
+<span class="token comment"># 上面两个文件也复制到 react-dom 和 scheduler</span>
+
+<span class="token builtin class-name">cd</span> <span class="token punctuation">..</span>/scripts
+<span class="token function">mkdir</span> rollup jest babel
+<span class="token function">touch</span> jest<span class="token punctuation">\</span>jest.config.js babel<span class="token punctuation">\</span>babel.config.js rollup<span class="token punctuation">\</span>rollup.config.js
+
+<span class="token builtin class-name">cd</span> <span class="token punctuation">..</span>
+</code></pre>
+<h3 id="2-配置typescript与eslint">2. 配置TypeScript与ESLint<a aria-hidden="true" class="anchor-heading icon-link" href="#2-配置typescript与eslint"></a></h3>
+<h4 id="21-配置typescript">2.1 配置TypeScript<a aria-hidden="true" class="anchor-heading icon-link" href="#21-配置typescript"></a></h4>
+<p>在根目录下创建<code>tsconfig.json</code>文件，并配置TypeScript编译选项。</p>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"compilerOptions"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"target"</span><span class="token operator">:</span> <span class="token string">"ESNext"</span><span class="token punctuation">,</span>
+    <span class="token property">"module"</span><span class="token operator">:</span> <span class="token string">"ESNext"</span><span class="token punctuation">,</span>
+    <span class="token property">"strict"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">"esModuleInterop"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">"forceConsistentCasingInFileNames"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">"moduleResolution"</span><span class="token operator">:</span> <span class="token string">"node"</span><span class="token punctuation">,</span>
+    <span class="token property">"isolatedModules"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">"noEmit"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">"importHelpers"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">"lib"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"dom"</span><span class="token punctuation">,</span> <span class="token string">"ESNext"</span><span class="token punctuation">]</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"include"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"packages/**/*"</span><span class="token punctuation">,</span> <span class="token string">"scripts/**/*"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">"exclude"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"node_modules"</span><span class="token punctuation">,</span> <span class="token string">"dist"</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="22-配置eslint">2.2 配置ESLint<a aria-hidden="true" class="anchor-heading icon-link" href="#22-配置eslint"></a></h4>
+<p>在根目录下创建<code>eslint.config.js</code>文件，并配置ESLint规则。</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span><span class="token property-access">exports</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    <span class="token literal-property property">files</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'packages/**/*.ts'</span><span class="token punctuation">,</span> <span class="token string">'scripts/**/*.ts'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">ignores</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'**/node_modules/**/*'</span><span class="token punctuation">,</span> <span class="token string">'**/dist/**/*'</span><span class="token punctuation">,</span> <span class="token string">'**/build/**/*'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">languageOptions</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">parserOptions</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">ecmaVersion</span><span class="token operator">:</span> <span class="token string">'latest'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">sourceType</span><span class="token operator">:</span> <span class="token string">'module'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">project</span><span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token method function property-access">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'./tsconfig.json'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">parser</span><span class="token operator">:</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'@typescript-eslint/parser'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment">// 确保使用 TypeScript 解析器</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token string-property property">'@typescript-eslint'</span><span class="token operator">:</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'@typescript-eslint/eslint-plugin'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">rules</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token string-property property">'@typescript-eslint/explicit-module-boundary-types'</span><span class="token operator">:</span> <span class="token string">'off'</span><span class="token punctuation">,</span>
+      <span class="token string-property property">'@typescript-eslint/no-explicit-any'</span><span class="token operator">:</span> <span class="token string">'off'</span><span class="token punctuation">,</span>
+      <span class="token string-property property">'no-console'</span><span class="token operator">:</span> <span class="token string">'warn'</span><span class="token punctuation">,</span>
+      <span class="token string-property property">'@typescript-eslint/no-unused-vars'</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'error'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">settings</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token string-property property">'import/resolver'</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">typescript</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token literal-property property">project</span><span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token method function property-access">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'./tsconfig.json'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre>
+<h4 id="23-安装依赖">2.3 安装依赖<a aria-hidden="true" class="anchor-heading icon-link" href="#23-安装依赖"></a></h4>
+<p>安装TypeScript和ESLint相关依赖。</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">pnpm</span> <span class="token function">add</span> -D -w eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin typescript
+</code></pre>
+<h4 id="24-测试eslint配置">2.4 测试ESLint配置<a aria-hidden="true" class="anchor-heading icon-link" href="#24-测试eslint配置"></a></h4>
+<p>在任何一个<code>src/index.ts</code>文件中写入<code>console.log</code>，然后运行<code>pnpm lint</code>，应该会看到警告信息。</p>
+<h3 id="3-使用rollup进行打包">3. 使用Rollup进行打包<a aria-hidden="true" class="anchor-heading icon-link" href="#3-使用rollup进行打包"></a></h3>
+<h4 id="31-安装rollup及相关插件">3.1 安装Rollup及相关插件<a aria-hidden="true" class="anchor-heading icon-link" href="#31-安装rollup及相关插件"></a></h4>
+<p>安装Rollup及其插件。</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">pnpm</span> <span class="token function">add</span> -D -w rollup rollup-plugin-commonjs rollup-plugin-node-resolve rollup-plugin-typescript
+</code></pre>
+<h4 id="32-配置rollup">3.2 配置Rollup<a aria-hidden="true" class="anchor-heading icon-link" href="#32-配置rollup"></a></h4>
+<p>在<code>scripts/rollup/rollup.config.js</code>中配置Rollup。</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> resolve <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'rollup-plugin-node-resolve'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> commonjs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'rollup-plugin-commonjs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> typescript <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'rollup-plugin-typescript'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 获取所有模块的路径</span>
+<span class="token keyword">const</span> packagesDir <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token method function property-access">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'../../packages'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> packages <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token method function property-access">readdirSync</span><span class="token punctuation">(</span>packagesDir<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">filter</span><span class="token punctuation">(</span><span class="token parameter">pkg</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> stat <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token method function property-access">statSync</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token method function property-access">join</span><span class="token punctuation">(</span>packagesDir<span class="token punctuation">,</span> pkg<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword control-flow">return</span> stat<span class="token punctuation">.</span><span class="token method function property-access">isDirectory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 构建每个模块的输入和输出配置</span>
+<span class="token keyword">const</span> inputConfigs <span class="token operator">=</span> packages<span class="token punctuation">.</span><span class="token method function property-access">map</span><span class="token punctuation">(</span><span class="token parameter">pkg</span> <span class="token arrow operator">=></span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token literal-property property">input</span><span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token method function property-access">join</span><span class="token punctuation">(</span>packagesDir<span class="token punctuation">,</span> pkg<span class="token punctuation">,</span> <span class="token string">'src'</span><span class="token punctuation">,</span> <span class="token string">'index.ts'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment">// 每个模块的入口</span>
+  <span class="token literal-property property">output</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token literal-property property">file</span><span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token method function property-access">join</span><span class="token punctuation">(</span>packagesDir<span class="token punctuation">,</span> pkg<span class="token punctuation">,</span> <span class="token string">'dist'</span><span class="token punctuation">,</span> <span class="token string">'index.umd.js'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">format</span><span class="token operator">:</span> <span class="token string">'umd'</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">name</span><span class="token operator">:</span> pkg<span class="token punctuation">.</span><span class="token method function property-access">charAt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> pkg<span class="token punctuation">.</span><span class="token method function property-access">slice</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment">// 生成全局名称</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+      <span class="token literal-property property">file</span><span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token method function property-access">join</span><span class="token punctuation">(</span>packagesDir<span class="token punctuation">,</span> pkg<span class="token punctuation">,</span> <span class="token string">'dist'</span><span class="token punctuation">,</span> <span class="token string">'index.esm.js'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">format</span><span class="token operator">:</span> <span class="token string">'esm'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+      <span class="token literal-property property">file</span><span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token method function property-access">join</span><span class="token punctuation">(</span>packagesDir<span class="token punctuation">,</span> pkg<span class="token punctuation">,</span> <span class="token string">'dist'</span><span class="token punctuation">,</span> <span class="token string">'index.cjs.js'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">format</span><span class="token operator">:</span> <span class="token string">'cjs'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">commonjs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">typescript</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span><span class="token property-access">exports</span> <span class="token operator">=</span> inputConfigs<span class="token punctuation">;</span>
+</code></pre>
+<h4 id="33-配置packagejson">3.3 配置<code>package.json</code><a aria-hidden="true" class="anchor-heading icon-link" href="#33-配置packagejson"></a></h4>
+<p>在<code>package.json</code>中添加<code>build</code>脚本。</p>
+<pre class="language-json"><code class="language-json">  <span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"lint"</span><span class="token operator">:</span> <span class="token string">"eslint"</span><span class="token punctuation">,</span>
+    <span class="token property">"build"</span><span class="token operator">:</span> <span class="token string">"rollup -c scripts/rollup/rollup.config.js"</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre>
+<h4 id="34-测试rollup配置">3.4 测试Rollup配置<a aria-hidden="true" class="anchor-heading icon-link" href="#34-测试rollup配置"></a></h4>
+<p>运行<code>pnpm build</code>命令，应该会生成各个模块下方的<code>dist/index.xxx.js</code>文件。</p>
+<h3 id="4-使用jest进行单元测试">4. 使用Jest进行单元测试<a aria-hidden="true" class="anchor-heading icon-link" href="#4-使用jest进行单元测试"></a></h3>
+<h4 id="41-安装jest及相关依赖">4.1 安装Jest及相关依赖<a aria-hidden="true" class="anchor-heading icon-link" href="#41-安装jest及相关依赖"></a></h4>
+<p>安装Jest及其相关依赖。</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">pnpm</span> <span class="token function">add</span> -D -w jest jest-environment-jsdom @types/jest babel-jest
+</code></pre>
+<h4 id="42-配置jest">4.2 配置Jest<a aria-hidden="true" class="anchor-heading icon-link" href="#42-配置jest"></a></h4>
+<p>在<code>scripts/jest/jest.config.js</code>中配置Jest。</p>
+<pre class="language-js"><code class="language-js">module<span class="token punctuation">.</span><span class="token property-access">exports</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">transform</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token string-property property">'^.+\\.ts$'</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'babel-jest'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token literal-property property">configFile</span><span class="token operator">:</span> require<span class="token punctuation">.</span><span class="token method function property-access">resolve</span><span class="token punctuation">(</span><span class="token string">'../babel/babel.config.js'</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">rootDir</span><span class="token operator">:</span> process<span class="token punctuation">.</span><span class="token method function property-access">cwd</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">roots</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'&#x3C;rootDir>/packages'</span><span class="token punctuation">,</span> <span class="token string">'&#x3C;rootDir>/scripts'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">testEnvironment</span><span class="token operator">:</span> <span class="token string">'jsdom'</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<h4 id="43-配置babel">4.3 配置Babel<a aria-hidden="true" class="anchor-heading icon-link" href="#43-配置babel"></a></h4>
+<p>在<code>scripts/babel/babel.config.js</code>中配置Babel。</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// scripts/babel/babel.config.js</span>
+module<span class="token punctuation">.</span><span class="token property-access">exports</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">presets</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">[</span><span class="token string">'@babel/preset-env'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">targets</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token literal-property property">node</span><span class="token operator">:</span> <span class="token string">'current'</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">'@babel/preset-typescript'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<h4 id="44-编写测试用例">4.4 编写测试用例<a aria-hidden="true" class="anchor-heading icon-link" href="#44-编写测试用例"></a></h4>
+<p>在<code>packages/react/src/__test__/index.test.ts</code>中编写测试用例。</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> <span class="token maybe-class-name">React</span> <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">'..'</span><span class="token punctuation">;</span>
+
+<span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'创建一个div元素'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> element1 <span class="token operator">=</span> <span class="token maybe-class-name">React</span><span class="token punctuation">.</span><span class="token method function property-access">createElement</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">'这是一个div元素'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>element1<span class="token punctuation">.</span><span class="token property-access">type</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">toBe</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>element1<span class="token punctuation">.</span><span class="token property-access">props</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">toEqual</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>element1<span class="token punctuation">.</span><span class="token property-access">children</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">toBe</span><span class="token punctuation">(</span><span class="token string">'这是一个div元素'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'创建一个p元素，带有属性class="myClass"'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> element2 <span class="token operator">=</span> <span class="token maybe-class-name">React</span><span class="token punctuation">.</span><span class="token method function property-access">createElement</span><span class="token punctuation">(</span><span class="token string">'p'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token keyword">class</span><span class="token operator">:</span> <span class="token string">'myClass'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">'这是一个p元素'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>element2<span class="token punctuation">.</span><span class="token property-access">type</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">toBe</span><span class="token punctuation">(</span><span class="token string">'p'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>element2<span class="token punctuation">.</span><span class="token property-access">props</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">toEqual</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token keyword">class</span><span class="token operator">:</span> <span class="token string">'myClass'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>element2<span class="token punctuation">.</span><span class="token property-access">children</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">toBe</span><span class="token punctuation">(</span><span class="token string">'这是一个p元素'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'创建一个div元素，包含一个p元素'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> element3 <span class="token operator">=</span> <span class="token maybe-class-name">React</span><span class="token punctuation">.</span><span class="token method function property-access">createElement</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token maybe-class-name">React</span><span class="token punctuation">.</span><span class="token method function property-access">createElement</span><span class="token punctuation">(</span><span class="token string">'p'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">'这是一个p元素'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>element3<span class="token punctuation">.</span><span class="token property-access">type</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">toBe</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>element3<span class="token punctuation">.</span><span class="token property-access">props</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">toEqual</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>element3<span class="token punctuation">.</span><span class="token property-access">children</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token property-access">type</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">toBe</span><span class="token punctuation">(</span><span class="token string">'p'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>element3<span class="token punctuation">.</span><span class="token property-access">children</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token property-access">props</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">toEqual</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>element3<span class="token punctuation">.</span><span class="token property-access">children</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token property-access">children</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">toBe</span><span class="token punctuation">(</span><span class="token string">'这是一个p元素'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h4 id="45-配置packagejson">4.5 配置<code>package.json</code><a aria-hidden="true" class="anchor-heading icon-link" href="#45-配置packagejson"></a></h4>
+<p>在<code>package.json</code>中添加<code>test</code>脚本。</p>
+<pre class="language-json"><code class="language-json">  <span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"lint"</span><span class="token operator">:</span> <span class="token string">"eslint"</span><span class="token punctuation">,</span>
+    <span class="token property">"build"</span><span class="token operator">:</span> <span class="token string">"rollup -c scripts/rollup/rollup.config.js"</span><span class="token punctuation">,</span>
+    <span class="token property">"test"</span><span class="token operator">:</span> <span class="token string">"jest -c scripts/jest/jest.config.js"</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre>
+<h4 id="46-测试jest配置">4.6 测试Jest配置<a aria-hidden="true" class="anchor-heading icon-link" href="#46-测试jest配置"></a></h4>
+<p>运行<code>pnpm test</code>命令，应该会运行所有测试用例并输出结果。</p>
+<h3 id="5-搭建monorepo结构并处理模块间依赖">5. 搭建monorepo结构并处理模块间依赖<a aria-hidden="true" class="anchor-heading icon-link" href="#5-搭建monorepo结构并处理模块间依赖"></a></h3>
+<h4 id="51-初始化monorepo">5.1 初始化monorepo<a aria-hidden="true" class="anchor-heading icon-link" href="#51-初始化monorepo"></a></h4>
+<p>在每个模块目录下执行<code>pnpm init</code>，并修改生成的<code>package.json</code>文件，将<code>main</code>字段改为<code>src/index.ts</code>。</p>
+<pre class="language-bash"><code class="language-bash"><span class="token builtin class-name">cd</span> packages/react
+<span class="token function">pnpm</span> init
+<span class="token comment"># 修改 package.json 中的 main 字段为 src/index.ts</span>
+
+<span class="token builtin class-name">cd</span> <span class="token punctuation">..</span>/react-dom
+<span class="token function">pnpm</span> init
+<span class="token comment"># 修改 package.json 中的 main 字段为 src/index.ts</span>
+
+<span class="token builtin class-name">cd</span> <span class="token punctuation">..</span>/scheduler
+<span class="token function">pnpm</span> init
+<span class="token comment"># 修改 package.json 中的 main 字段为 src/index.ts</span>
+</code></pre>
+<h4 id="52-配置工作区">5.2 配置工作区<a aria-hidden="true" class="anchor-heading icon-link" href="#52-配置工作区"></a></h4>
+<p>在根目录下创建<code>pnpm-workspace.yaml</code>文件，配置工作区。</p>
+<pre class="language-yaml"><code class="language-yaml"><span class="token key atrule">packages</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token string">'packages/*'</span>
+</code></pre>
+<h4 id="53-处理模块间依赖">5.3 处理模块间依赖<a aria-hidden="true" class="anchor-heading icon-link" href="#53-处理模块间依赖"></a></h4>
+<p>在<code>react</code>模块的<code>package.json</code>中添加对<code>scheduler</code>模块的依赖。</p>
+<pre class="language-json"><code class="language-json">  <span class="token property">"dependencies"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"scheduler"</span><span class="token operator">:</span> <span class="token string">"workspace:*"</span>
+  <span class="token punctuation">}</span>
+</code></pre>
+<p>在<code>react</code>模块目录下运行<code>pnpm install</code>。</p>
+<h4 id="54-测试monorepo配置">5.4 测试monorepo配置<a aria-hidden="true" class="anchor-heading icon-link" href="#54-测试monorepo配置"></a></h4>
+<p>在<code>react</code>模块中使用<code>scheduler</code>模块，并编写测试用例。</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> <span class="token maybe-class-name">Scheduler</span> <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">'scheduler'</span>
+<span class="token keyword module">export</span> <span class="token keyword">class</span> <span class="token class-name">React</span> <span class="token punctuation">{</span>
+  <span class="token keyword">static</span> <span class="token function">createElement</span><span class="token punctuation">(</span><span class="token parameter"><span class="token literal-property property">type</span><span class="token operator">:</span> string<span class="token punctuation">,</span> <span class="token literal-property property">props</span><span class="token operator">:</span> any<span class="token punctuation">,</span> <span class="token spread operator">...</span>children<span class="token operator">:</span> any<span class="token punctuation">[</span><span class="token punctuation">]</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">return</span> <span class="token punctuation">{</span> type<span class="token punctuation">,</span> props<span class="token punctuation">,</span> children <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">static</span> <span class="token function">scheduleReconciliation</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token maybe-class-name">Scheduler</span><span class="token punctuation">.</span><span class="token method function property-access">scheduleWork</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+      <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">'Reconciling...'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<pre class="language-js"><code class="language-js"><span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> <span class="token maybe-class-name">React</span> <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">'..'</span><span class="token punctuation">;</span>
+<span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> <span class="token maybe-class-name">Scheduler</span> <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">'scheduler'</span><span class="token punctuation">;</span>
+
+jest<span class="token punctuation">.</span><span class="token method function property-access">mock</span><span class="token punctuation">(</span><span class="token string">'scheduler'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token literal-property property">Scheduler</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">scheduleWork</span><span class="token operator">:</span> jest<span class="token punctuation">.</span><span class="token method function property-access">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">'React 类'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">'createElement 方法'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+    <span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'创建一个div元素'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> element1 <span class="token operator">=</span> <span class="token maybe-class-name">React</span><span class="token punctuation">.</span><span class="token method function property-access">createElement</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">'这是一个div元素'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">expect</span><span class="token punctuation">(</span>element1<span class="token punctuation">.</span><span class="token property-access">type</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">toBe</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">expect</span><span class="token punctuation">(</span>element1<span class="token punctuation">.</span><span class="token property-access">props</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">toEqual</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">expect</span><span class="token punctuation">(</span>element1<span class="token punctuation">.</span><span class="token property-access">children</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">toBe</span><span class="token punctuation">(</span><span class="token string">'这是一个div元素'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'创建一个p元素，带有属性class="myClass"'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> element2 <span class="token operator">=</span> <span class="token maybe-class-name">React</span><span class="token punctuation">.</span><span class="token method function property-access">createElement</span><span class="token punctuation">(</span><span class="token string">'p'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token keyword">class</span><span class="token operator">:</span> <span class="token string">'myClass'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">'这是一个p元素'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">expect</span><span class="token punctuation">(</span>element2<span class="token punctuation">.</span><span class="token property-access">type</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">toBe</span><span class="token punctuation">(</span><span class="token string">'p'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">expect</span><span class="token punctuation">(</span>element2<span class="token punctuation">.</span><span class="token property-access">props</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">toEqual</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token keyword">class</span><span class="token operator">:</span> <span class="token string">'myClass'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">expect</span><span class="token punctuation">(</span>element2<span class="token punctuation">.</span><span class="token property-access">children</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">toBe</span><span class="token punctuation">(</span><span class="token string">'这是一个p元素'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'创建一个div元素，包含一个p元素'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> element3 <span class="token operator">=</span> <span class="token maybe-class-name">React</span><span class="token punctuation">.</span><span class="token method function property-access">createElement</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token maybe-class-name">React</span><span class="token punctuation">.</span><span class="token method function property-access">createElement</span><span class="token punctuation">(</span><span class="token string">'p'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">'这是一个p元素'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">expect</span><span class="token punctuation">(</span>element3<span class="token punctuation">.</span><span class="token property-access">type</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">toBe</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">expect</span><span class="token punctuation">(</span>element3<span class="token punctuation">.</span><span class="token property-access">props</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">toEqual</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">expect</span><span class="token punctuation">(</span>element3<span class="token punctuation">.</span><span class="token property-access">children</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token property-access">type</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">toBe</span><span class="token punctuation">(</span><span class="token string">'p'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">expect</span><span class="token punctuation">(</span>element3<span class="token punctuation">.</span><span class="token property-access">children</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token property-access">props</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">toEqual</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">expect</span><span class="token punctuation">(</span>element3<span class="token punctuation">.</span><span class="token property-access">children</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token property-access">children</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">toBe</span><span class="token punctuation">(</span><span class="token string">'这是一个p元素'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">'scheduleReconciliation 方法'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+    <span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'应该调用 Scheduler.scheduleWork'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+      <span class="token maybe-class-name">React</span><span class="token punctuation">.</span><span class="token method function property-access">scheduleReconciliation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">expect</span><span class="token punctuation">(</span><span class="token maybe-class-name">Scheduler</span><span class="token punctuation">.</span><span class="token property-access">scheduleWork</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">toHaveBeenCalled</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>运行<code>pnpm test</code>进行测试。</p>
+<h3 id="6-创建示例页面并实现热更新">6. 创建示例页面并实现热更新<a aria-hidden="true" class="anchor-heading icon-link" href="#6-创建示例页面并实现热更新"></a></h3>
+<h4 id="61-准备模块文件">6.1 准备模块文件<a aria-hidden="true" class="anchor-heading icon-link" href="#61-准备模块文件"></a></h4>
+<p>创建<code>example</code>模块，并准备必要的文件。</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">mkdir</span> packages/example
+<span class="token builtin class-name">cd</span> packages/example
+<span class="token function">touch</span> index.html index.ts
+<span class="token function">pnpm</span> init
+</code></pre>
+<h4 id="62-配置example模块">6.2 配置<code>example</code>模块<a aria-hidden="true" class="anchor-heading icon-link" href="#62-配置example模块"></a></h4>
+<p>在<code>example/index.html</code>中编写HTML文件。</p>
+<pre class="language-html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&#x3C;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>head</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1.0<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>title</span><span class="token punctuation">></span></span>React Example<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>title</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>head</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>body</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>root<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>dist/bundle.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>html</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>在<code>example/index.ts</code>中编写TypeScript代码。</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> <span class="token maybe-class-name">React</span> <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> <span class="token maybe-class-name">ReactDOM</span> <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">'react-dom'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> element <span class="token operator">=</span> <span class="token maybe-class-name">React</span><span class="token punctuation">.</span><span class="token method function property-access">createElement</span><span class="token punctuation">(</span>
+  <span class="token string">'div'</span><span class="token punctuation">,</span>
+  <span class="token keyword null nil">null</span><span class="token punctuation">,</span>
+  <span class="token maybe-class-name">React</span><span class="token punctuation">.</span><span class="token method function property-access">createElement</span><span class="token punctuation">(</span><span class="token string">'h1'</span><span class="token punctuation">,</span> <span class="token keyword null nil">null</span><span class="token punctuation">,</span> <span class="token string">'Hello, World!'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token maybe-class-name">React</span><span class="token punctuation">.</span><span class="token method function property-access">createElement</span><span class="token punctuation">(</span><span class="token string">'p'</span><span class="token punctuation">,</span> <span class="token keyword null nil">null</span><span class="token punctuation">,</span> <span class="token string">'This is a simple React component.'</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token maybe-class-name">ReactDOM</span><span class="token punctuation">.</span><span class="token method function property-access">render</span><span class="token punctuation">(</span>element<span class="token punctuation">,</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">getElementById</span><span class="token punctuation">(</span><span class="token string">'root'</span><span class="token punctuation">)</span><span class="token operator">!</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>在<code>example/package.json</code>中添加依赖。</p>
+<pre class="language-json"><code class="language-json">  <span class="token property">"dependencies"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"react"</span><span class="token operator">:</span> <span class="token string">"workspace:*"</span><span class="token punctuation">,</span>
+    <span class="token property">"react-dom"</span><span class="token operator">:</span> <span class="token string">"workspace:*"</span>
+  <span class="token punctuation">}</span>
+</code></pre>
+<p>在<code>example</code>模块目录下运行<code>pnpm install</code>。</p>
+<h4 id="63-配置rollup">6.3 配置Rollup<a aria-hidden="true" class="anchor-heading icon-link" href="#63-配置rollup"></a></h4>
+<p>在<code>scripts/rollup/rollup.config.js</code>中配置Rollup，支持热更新。</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> resolve <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'rollup-plugin-node-resolve'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> commonjs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'rollup-plugin-commonjs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> typescript <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'rollup-plugin-typescript'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> serve <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'rollup-plugin-serve'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> livereload <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'rollup-plugin-livereload'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span> execSync <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'child_process'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> packagesDir <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token method function property-access">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'../../packages'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 获取命令行参数</span>
+<span class="token keyword">const</span> argv <span class="token operator">=</span> process<span class="token punctuation">.</span><span class="token property-access">argv</span><span class="token punctuation">.</span><span class="token method function property-access">slice</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> isWatchMode <span class="token operator">=</span> argv<span class="token punctuation">.</span><span class="token method function property-access">includes</span><span class="token punctuation">(</span><span class="token string">'-w'</span><span class="token punctuation">)</span> <span class="token operator">||</span> argv<span class="token punctuation">.</span><span class="token method function property-access">includes</span><span class="token punctuation">(</span><span class="token string">'--watch'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 获取所有模块的路径</span>
+<span class="token keyword">const</span> packages <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token method function property-access">readdirSync</span><span class="token punctuation">(</span>packagesDir<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">filter</span><span class="token punctuation">(</span><span class="token parameter">pkg</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> stat <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token method function property-access">statSync</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token method function property-access">join</span><span class="token punctuation">(</span>packagesDir<span class="token punctuation">,</span> pkg<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword control-flow">return</span> stat<span class="token punctuation">.</span><span class="token method function property-access">isDirectory</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&#x26;&#x26;</span> pkg <span class="token operator">!==</span> <span class="token string">'example'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 构建每个模块的输入和输出配置</span>
+<span class="token keyword">const</span> <span class="token function-variable function">buildPackageConfig</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">pkg</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token literal-property property">input</span><span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token method function property-access">join</span><span class="token punctuation">(</span>packagesDir<span class="token punctuation">,</span> pkg<span class="token punctuation">,</span> <span class="token string">'src'</span><span class="token punctuation">,</span> <span class="token string">'index.ts'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">output</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token literal-property property">file</span><span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token method function property-access">join</span><span class="token punctuation">(</span>packagesDir<span class="token punctuation">,</span> pkg<span class="token punctuation">,</span> <span class="token string">'dist'</span><span class="token punctuation">,</span> <span class="token string">'index.umd.js'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">format</span><span class="token operator">:</span> <span class="token string">'umd'</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">name</span><span class="token operator">:</span> pkg<span class="token punctuation">.</span><span class="token method function property-access">charAt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> pkg<span class="token punctuation">.</span><span class="token method function property-access">slice</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+      <span class="token literal-property property">file</span><span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token method function property-access">join</span><span class="token punctuation">(</span>packagesDir<span class="token punctuation">,</span> pkg<span class="token punctuation">,</span> <span class="token string">'dist'</span><span class="token punctuation">,</span> <span class="token string">'index.esm.js'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">format</span><span class="token operator">:</span> <span class="token string">'esm'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+      <span class="token literal-property property">file</span><span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token method function property-access">join</span><span class="token punctuation">(</span>packagesDir<span class="token punctuation">,</span> pkg<span class="token punctuation">,</span> <span class="token string">'dist'</span><span class="token punctuation">,</span> <span class="token string">'index.cjs.js'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">format</span><span class="token operator">:</span> <span class="token string">'cjs'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">commonjs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">typescript</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 构建 example 页面的打包配置</span>
+<span class="token keyword">const</span> <span class="token function-variable function">buildExampleConfig</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token literal-property property">input</span><span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token method function property-access">join</span><span class="token punctuation">(</span>packagesDir<span class="token punctuation">,</span> <span class="token string">'example'</span><span class="token punctuation">,</span> <span class="token string">'index.ts'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">output</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">file</span><span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token method function property-access">join</span><span class="token punctuation">(</span>packagesDir<span class="token punctuation">,</span> <span class="token string">'example'</span><span class="token punctuation">,</span> <span class="token string">'dist'</span><span class="token punctuation">,</span> <span class="token string">'bundle.js'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">format</span><span class="token operator">:</span> <span class="token string">'iife'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">sourcemap</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">commonjs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">typescript</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">serve</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token literal-property property">contentBase</span><span class="token operator">:</span> <span class="token punctuation">[</span>path<span class="token punctuation">.</span><span class="token method function property-access">join</span><span class="token punctuation">(</span>packagesDir<span class="token punctuation">,</span> <span class="token string">'example'</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">port</span><span class="token operator">:</span> <span class="token number">3000</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">livereload</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token literal-property property">watch</span><span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token method function property-access">join</span><span class="token punctuation">(</span>packagesDir<span class="token punctuation">,</span> <span class="token string">'example'</span><span class="token punctuation">,</span> <span class="token string">'dist'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 根据模式选择配置</span>
+<span class="token keyword">const</span> inputConfigs <span class="token operator">=</span> isWatchMode
+  <span class="token operator">?</span> <span class="token punctuation">[</span><span class="token function">buildExampleConfig</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+  <span class="token operator">:</span> packages<span class="token punctuation">.</span><span class="token method function property-access">map</span><span class="token punctuation">(</span>buildPackageConfig<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 在所有模块打包完成后安装依赖</span>
+inputConfigs<span class="token punctuation">.</span><span class="token method function property-access">forEach</span><span class="token punctuation">(</span><span class="token parameter">config</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  config<span class="token punctuation">.</span><span class="token property-access">plugins</span><span class="token punctuation">.</span><span class="token method function property-access">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'pnpm-install'</span><span class="token punctuation">,</span>
+    <span class="token function">buildEnd</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Running pnpm install for </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>config<span class="token punctuation">.</span><span class="token property-access">input</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">execSync</span><span class="token punctuation">(</span><span class="token string">'pnpm install'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">cwd</span><span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token method function property-access">dirname</span><span class="token punctuation">(</span>config<span class="token punctuation">.</span><span class="token property-access">input</span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 导出所有配置</span>
+module<span class="token punctuation">.</span><span class="token property-access">exports</span> <span class="token operator">=</span> inputConfigs<span class="token punctuation">;</span>
+</code></pre>
+<h4 id="64-配置packagejson">6.4 配置<code>package.json</code><a aria-hidden="true" class="anchor-heading icon-link" href="#64-配置packagejson"></a></h4>
+<p>在<code>package.json</code>中添加<code>start</code>脚本。</p>
+<pre class="language-json"><code class="language-json">  <span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"lint"</span><span class="token operator">:</span> <span class="token string">"eslint"</span><span class="token punctuation">,</span>
+    <span class="token property">"build"</span><span class="token operator">:</span> <span class="token string">"rollup -c scripts/rollup/rollup.config.js"</span><span class="token punctuation">,</span>
+    <span class="token property">"test"</span><span class="token operator">:</span> <span class="token string">"jest -c scripts/jest/jest.config.js"</span><span class="token punctuation">,</span>
+    <span class="token property">"start"</span><span class="token operator">:</span> <span class="token string">"rollup -c scripts/rollup/rollup.config.js -w"</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre>
+<h4 id="65-运行测试">6.5 运行测试<a aria-hidden="true" class="anchor-heading icon-link" href="#65-运行测试"></a></h4>
+<p>在根目录下运行<code>pnpm start</code>，然后打开<code>http://localhost:3000/</code>，应该能看到页面，同时修改<code>example/index.ts</code>可以测试热更新功能。</p>
+<h2 id="总结">总结<a aria-hidden="true" class="anchor-heading icon-link" href="#总结"></a></h2>
+<p>通过本课程，我们成功搭建了一个与React官方工程结构相近的源码工程。我们使用了Rollup进行打包，Jest进行单元测试，pnpm进行包管理，并搭建了一个monorepo结构的多包工程。我们还创建了一个示例页面并实现了热更新功能。希望本课程能帮助你更好地理解React源码工程的搭建过程。</p>
+<hr>
+<h2 id="tags">Tags<a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a></h2>
+<ol>
+<li><a class="color-tag" style="--tag-color: #fdc1c5;" href="/notes/x6h3yqz3zv0nmgq9dw0olq1">开发</a></li>
+<li><a class="color-tag" style="--tag-color: #7a5901;" href="/notes/qckkp648x79eibufdx7ldrd">前端</a></li>
+<li><a class="color-tag" style="--tag-color: #929901;" href="/notes/nps1x81zxd8rffss53dcfds">React</a></li>
+</ol>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/">伟's 博客首页</a></li>
+</ul>

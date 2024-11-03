@@ -1,0 +1,48 @@
+<h1 id="使用-ai-辅助开发阿里云-oss-自动备份工具及监控功能">使用 AI 辅助开发阿里云 OSS 自动备份工具及监控功能<a aria-hidden="true" class="anchor-heading icon-link" href="#使用-ai-辅助开发阿里云-oss-自动备份工具及监控功能"></a></h1>
+<h2 id="相关资源">相关资源<a aria-hidden="true" class="anchor-heading icon-link" href="#相关资源"></a></h2>
+<ul>
+<li><a href="https://gitee.com/imyyliang/sqlite-database-backup-tool">项目地址</a></li>
+<li>README文件内容: <a href="/notes/bk61pxyk0ehbwu75dr1cyj7">SQLite 数据库备份工具 README</a></li>
+</ul>
+<h2 id="前言">前言<a aria-hidden="true" class="anchor-heading icon-link" href="#前言"></a></h2>
+<p>作为一名前端工程师，我经常自托管一些服务，比如笔记和待办事项等，这些服务通常使用 sqlite 数据库。为了确保数据的安全性，我决定开发一个备份工具。在这个过程中，我充分利用了 AI 工具 aider，结合自己的专业知识，仅用三个半小时就实现了一个功能较为完善的备份工具，其中还包括了一个监控功能。下面我将详细介绍整个开发过程。</p>
+<h2 id="一开发背景">一、开发背景<a aria-hidden="true" class="anchor-heading icon-link" href="#一开发背景"></a></h2>
+<p>我自托管了不少服务，数据都存储在 sqlite 数据库中。为了防止数据丢失，需要一个备份工具。然而，我发现现有的备份工具都比较折腾，于是决定自己动手开发一个。</p>
+<h2 id="二技术选型">二、技术选型<a aria-hidden="true" class="anchor-heading icon-link" href="#二技术选型"></a></h2>
+<ul>
+<li>编程语言：选择 Node.js，因为它具有强大的文件操作和网络编程能力。</li>
+<li>进程管理工具：使用 pm2 来维护执行，确保程序的稳定性和可靠性。</li>
+<li>AI 辅助工具：aider，用于生成代码和提供思路。</li>
+<li>云存储服务：阿里云 OSS，提供可靠的存储和备份解决方案。</li>
+<li>定时任务包：node-cron，用于实现定时备份功能。</li>
+</ul>
+<h2 id="三开发过程">三、开发过程<a aria-hidden="true" class="anchor-heading icon-link" href="#三开发过程"></a></h2>
+<h3 id="一链接阿里云-oss">（一）链接阿里云 OSS<a aria-hidden="true" class="anchor-heading icon-link" href="#一链接阿里云-oss"></a></h3>
+<p>首先，让 AI 写一个链接阿里云 OSS 的代码。阿里云 OSS 提供了丰富的 API，可以方便地进行文件上传和下载等操作。通过以下步骤实现了链接阿里云 OSS：
+自己开通一个 OSS 服务，获取名称、区域和 accessKey 等信息。
+测试 AI 生成的代码，确保能够成功连接到阿里云 OSS。</p>
+<h3 id="二遍历并上传-db-文件">（二）遍历并上传 db 文件<a aria-hidden="true" class="anchor-heading icon-link" href="#二遍历并上传-db-文件"></a></h3>
+<p>接着，让 AI 写一段代码，遍历当前目录下的所有 db 文件，并上传到阿里云 OSS。这个功能可以确保所有的 sqlite 数据库文件都能被备份到云端。
+###（三）定时备份功能
+为了实现定时备份，使用了 node-cron 包。这个包可以方便地设置定时任务，实现每两个小时上传一次备份的功能。这是作为程序员使用 AI 的优势之一，因为普通人可能不知道这个包，而 AI 在生成代码时可以根据程序员的提示使用合适的工具。</p>
+<h3 id="四备份记录">（四）备份记录<a aria-hidden="true" class="anchor-heading icon-link" href="#四备份记录"></a></h3>
+<p>让 AI 写一段代码，在每次备份的时候，在当前目录下的 backup-log 文件里面留下一条备份记录，包括备份时间、备份成功的文件数量和备份失败的文件数量，用中文记录。这样可以方便地查看备份的历史记录，以及了解备份的情况。</p>
+<h3 id="五重构代码">（五）重构代码<a aria-hidden="true" class="anchor-heading icon-link" href="#五重构代码"></a></h3>
+<p>虽然 AI 生成的代码已经能够实现基本的功能，但是代码的结构和注释可能不够清晰。由于代码太长，我决定自己处理重构和添加注释的工作。通过重构代码，可以提高代码的可读性和可维护性。</p>
+<h3 id="六监控功能">（六）监控功能<a aria-hidden="true" class="anchor-heading icon-link" href="#六监控功能"></a></h3>
+<p>为了实时了解备份的情况，我决定添加一个监控功能。将备份功能手动拆成一个独立模块，然后让 AI 写一个服务器，每次访问都会返回备份记录的最后一行，然后作为模块导出。最后，在主文件中引入这两个模块，就实现了我想要的功能。这个监控功能我是作为 iframe 嵌入到我自己的仪表板主页中的，方便随时查看备份情况。</p>
+<h2 id="四总结">四、总结<a aria-hidden="true" class="anchor-heading icon-link" href="#四总结"></a></h2>
+<p>通过这次开发，我深刻体会到了 AI 辅助开发的优势。虽然 AI 目前还不能完全独立地完成一个复杂的项目，但是它可以为程序员提供很多帮助，比如生成代码、提供思路和解决问题等。在未来的开发中，我将继续探索如何更好地利用 AI 工具，提高开发效率和质量。
+总的来说，这个备份工具的开发过程虽然花费了一些时间，但是相比自己完全手动开发，还是节省了很多时间。希望我的经验能够对其他程序员有所帮助。</p>
+<hr>
+<h2 id="tags">Tags<a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a></h2>
+<ol>
+<li><a class="color-tag" style="--tag-color: #4e0550;" href="/notes/uv59w5pygzr05mgn2gsiy0q">人工智能</a></li>
+<li><a class="color-tag" style="--tag-color: #fdc1c5;" href="/notes/x6h3yqz3zv0nmgq9dw0olq1">开发</a></li>
+</ol>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/">伟's 博客首页</a></li>
+<li><a href="/notes/bk61pxyk0ehbwu75dr1cyj7">SQLite 数据库备份工具 README</a></li>
+</ul>

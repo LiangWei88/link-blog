@@ -1,0 +1,343 @@
+{
+  "roots": [
+    {
+      "key": "vsguek05jsxrs3n29u2djmg",
+      "title": "2016 年文章",
+      "icon": null,
+      "hasTitleNumberOutlined": false,
+      "vaultName": "vault",
+      "children": [
+        {
+          "key": "iwxigrdwygj5umbcrk72rqp",
+          "title": "如何在功能性和灵活性之间找到平衡？——以老版Wiz为知笔记为例",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "vault",
+          "children": []
+        },
+        {
+          "key": "49y747ss65qa4xp6jdvneys",
+          "title": "谁动了我的硬盘？电脑数据容量单位科普入门浅析",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "vault",
+          "children": []
+        }
+      ]
+    },
+    {
+      "key": "42flion6vsanas7ma8apdgc",
+      "title": "2017 年文章",
+      "icon": null,
+      "hasTitleNumberOutlined": false,
+      "vaultName": "vault",
+      "children": [
+        {
+          "key": "2obij3czw1d1v00gn5snylt",
+          "title": "WordPress 迁移后遇到的问题及解决方案",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "vault",
+          "children": []
+        },
+        {
+          "key": "0k6y0yd7iz2z13a9acrpydb",
+          "title": "如何合理定价建站服务？",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "vault",
+          "children": []
+        },
+        {
+          "key": "1kadaw0m526pe4nigpk54hs",
+          "title": "网站价值几何？",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "vault",
+          "children": []
+        },
+        {
+          "key": "bsdjcehdkbqi1lz6vv8ghax",
+          "title": "网页设计定价：揭秘背后的故事",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "vault",
+          "children": []
+        }
+      ]
+    },
+    {
+      "key": "cyjg2pr9blmc62o08wkqi7h",
+      "title": "2023 年文章",
+      "icon": null,
+      "hasTitleNumberOutlined": false,
+      "vaultName": "vault",
+      "children": [
+        {
+          "key": "vxc93m7elob9g301aua90nx",
+          "title": "Vue-Admin-Work 运行时 Codemirror 错误解决方案",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "vault",
+          "children": []
+        },
+        {
+          "key": "z1g32namvhye08f52cerm6f",
+          "title": "前端 Vue 基本功自测",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "vault",
+          "children": []
+        }
+      ]
+    },
+    {
+      "key": "jj9rnjwpe2h2c5x2u03wnkc",
+      "title": "2024 年文章",
+      "icon": null,
+      "hasTitleNumberOutlined": false,
+      "vaultName": "vault",
+      "children": [
+        {
+          "key": "4z8xf4evgxjq9xa6qspbkf0",
+          "title": "Docker镜像拉取困难？看这里！阿里云部署Dashy的成功案例",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "vault",
+          "children": []
+        },
+        {
+          "key": "3urgjw37km17icqga1fpl1g",
+          "title": "React 源码分析 - 第一部分架构说明",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "vault",
+          "children": []
+        },
+        {
+          "key": "4q8p1w7ik2fewu0nv9g1504",
+          "title": "Readme驱动开发（RDD）实践笔记",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "vault",
+          "children": []
+        },
+        {
+          "key": "bk61pxyk0ehbwu75dr1cyj7",
+          "title": "SQLite 数据库备份工具 README",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "vault",
+          "children": []
+        },
+        {
+          "key": "kwngg0r05pzb8plwew0g2za",
+          "title": "ai读博客 Effective Prompt 编写高质量Prompt的14个有效方法",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "vault",
+          "children": []
+        },
+        {
+          "key": "uwgj6n14vhswfglcwqiuddq",
+          "title": "个人笔记软件思考 - Obsidian vs logseq 和其他",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "vault",
+          "children": []
+        },
+        {
+          "key": "kg7ey1x9ibmvxx222c0zpjz",
+          "title": "使用 AI 辅助开发阿里云 OSS 自动备份工具及监控功能",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "vault",
+          "children": []
+        },
+        {
+          "key": "m5v9x2bx1w0dknegour1q3p",
+          "title": "打造高效的个人知识管理系统：我的思考与实践",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "vault",
+          "children": []
+        },
+        {
+          "key": "5tby10aumcvamgjobrozhgm",
+          "title": "鸿蒙HarmonyOS开发高级认证知识点总结",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "vault",
+          "children": []
+        }
+      ]
+    },
+    {
+      "key": "jzq3k39poeomxtuu0rw4wd2",
+      "title": "Tags",
+      "icon": "numberOutlined",
+      "hasTitleNumberOutlined": false,
+      "vaultName": "vault",
+      "children": [
+        {
+          "key": "nps1x81zxd8rffss53dcfds",
+          "title": "React",
+          "icon": null,
+          "hasTitleNumberOutlined": true,
+          "vaultName": "vault",
+          "children": []
+        },
+        {
+          "key": "ojqihk1gvc9x2025ueyyf99",
+          "title": "Prompt",
+          "icon": null,
+          "hasTitleNumberOutlined": true,
+          "vaultName": "vault",
+          "children": []
+        },
+        {
+          "key": "6xrqi3o92dyo030yxcy2w4u",
+          "title": "Vue",
+          "icon": null,
+          "hasTitleNumberOutlined": true,
+          "vaultName": "vault",
+          "children": []
+        },
+        {
+          "key": "uv59w5pygzr05mgn2gsiy0q",
+          "title": "人工智能",
+          "icon": null,
+          "hasTitleNumberOutlined": true,
+          "vaultName": "vault",
+          "children": []
+        },
+        {
+          "key": "qckkp648x79eibufdx7ldrd",
+          "title": "前端",
+          "icon": null,
+          "hasTitleNumberOutlined": true,
+          "vaultName": "vault",
+          "children": []
+        },
+        {
+          "key": "x6h3yqz3zv0nmgq9dw0olq1",
+          "title": "开发",
+          "icon": null,
+          "hasTitleNumberOutlined": true,
+          "vaultName": "vault",
+          "children": []
+        },
+        {
+          "key": "ak8w5k8m9mwlnap1uno5wm1",
+          "title": "思考",
+          "icon": null,
+          "hasTitleNumberOutlined": true,
+          "vaultName": "vault",
+          "children": []
+        },
+        {
+          "key": "2ltb44y2vhye8ut5il6i0wf",
+          "title": "成长",
+          "icon": null,
+          "hasTitleNumberOutlined": true,
+          "vaultName": "vault",
+          "children": []
+        },
+        {
+          "key": "wumpk0duqthr2lqhi3j873s",
+          "title": "科普",
+          "icon": null,
+          "hasTitleNumberOutlined": true,
+          "vaultName": "vault",
+          "children": []
+        },
+        {
+          "key": "v1zm9rr62uhe3qr6ksko45c",
+          "title": "设计",
+          "icon": null,
+          "hasTitleNumberOutlined": true,
+          "vaultName": "vault",
+          "children": []
+        },
+        {
+          "key": "teew81jj72hor57c4qz3qz0",
+          "title": "鸿蒙",
+          "icon": null,
+          "hasTitleNumberOutlined": true,
+          "vaultName": "vault",
+          "children": []
+        }
+      ]
+    }
+  ],
+  "child2parent": {
+    "vsguek05jsxrs3n29u2djmg": null,
+    "iwxigrdwygj5umbcrk72rqp": "vsguek05jsxrs3n29u2djmg",
+    "49y747ss65qa4xp6jdvneys": "vsguek05jsxrs3n29u2djmg",
+    "42flion6vsanas7ma8apdgc": null,
+    "2obij3czw1d1v00gn5snylt": "42flion6vsanas7ma8apdgc",
+    "0k6y0yd7iz2z13a9acrpydb": "42flion6vsanas7ma8apdgc",
+    "1kadaw0m526pe4nigpk54hs": "42flion6vsanas7ma8apdgc",
+    "bsdjcehdkbqi1lz6vv8ghax": "42flion6vsanas7ma8apdgc",
+    "cyjg2pr9blmc62o08wkqi7h": null,
+    "vxc93m7elob9g301aua90nx": "cyjg2pr9blmc62o08wkqi7h",
+    "z1g32namvhye08f52cerm6f": "cyjg2pr9blmc62o08wkqi7h",
+    "jj9rnjwpe2h2c5x2u03wnkc": null,
+    "4z8xf4evgxjq9xa6qspbkf0": "jj9rnjwpe2h2c5x2u03wnkc",
+    "3urgjw37km17icqga1fpl1g": "jj9rnjwpe2h2c5x2u03wnkc",
+    "4q8p1w7ik2fewu0nv9g1504": "jj9rnjwpe2h2c5x2u03wnkc",
+    "bk61pxyk0ehbwu75dr1cyj7": "jj9rnjwpe2h2c5x2u03wnkc",
+    "kwngg0r05pzb8plwew0g2za": "jj9rnjwpe2h2c5x2u03wnkc",
+    "uwgj6n14vhswfglcwqiuddq": "jj9rnjwpe2h2c5x2u03wnkc",
+    "kg7ey1x9ibmvxx222c0zpjz": "jj9rnjwpe2h2c5x2u03wnkc",
+    "m5v9x2bx1w0dknegour1q3p": "jj9rnjwpe2h2c5x2u03wnkc",
+    "5tby10aumcvamgjobrozhgm": "jj9rnjwpe2h2c5x2u03wnkc",
+    "jzq3k39poeomxtuu0rw4wd2": null,
+    "nps1x81zxd8rffss53dcfds": "jzq3k39poeomxtuu0rw4wd2",
+    "ojqihk1gvc9x2025ueyyf99": "jzq3k39poeomxtuu0rw4wd2",
+    "6xrqi3o92dyo030yxcy2w4u": "jzq3k39poeomxtuu0rw4wd2",
+    "uv59w5pygzr05mgn2gsiy0q": "jzq3k39poeomxtuu0rw4wd2",
+    "qckkp648x79eibufdx7ldrd": "jzq3k39poeomxtuu0rw4wd2",
+    "x6h3yqz3zv0nmgq9dw0olq1": "jzq3k39poeomxtuu0rw4wd2",
+    "ak8w5k8m9mwlnap1uno5wm1": "jzq3k39poeomxtuu0rw4wd2",
+    "2ltb44y2vhye8ut5il6i0wf": "jzq3k39poeomxtuu0rw4wd2",
+    "wumpk0duqthr2lqhi3j873s": "jzq3k39poeomxtuu0rw4wd2",
+    "v1zm9rr62uhe3qr6ksko45c": "jzq3k39poeomxtuu0rw4wd2",
+    "teew81jj72hor57c4qz3qz0": "jzq3k39poeomxtuu0rw4wd2"
+  },
+  "notesLabelById": {
+    "vsguek05jsxrs3n29u2djmg": "2016 年文章",
+    "iwxigrdwygj5umbcrk72rqp": "如何在功能性和灵活性之间找到平衡？——以老版Wiz为知笔记为例",
+    "49y747ss65qa4xp6jdvneys": "谁动了我的硬盘？电脑数据容量单位科普入门浅析",
+    "42flion6vsanas7ma8apdgc": "2017 年文章",
+    "2obij3czw1d1v00gn5snylt": "WordPress 迁移后遇到的问题及解决方案",
+    "0k6y0yd7iz2z13a9acrpydb": "如何合理定价建站服务？",
+    "1kadaw0m526pe4nigpk54hs": "网站价值几何？",
+    "bsdjcehdkbqi1lz6vv8ghax": "网页设计定价：揭秘背后的故事",
+    "cyjg2pr9blmc62o08wkqi7h": "2023 年文章",
+    "vxc93m7elob9g301aua90nx": "Vue-Admin-Work 运行时 Codemirror 错误解决方案",
+    "z1g32namvhye08f52cerm6f": "前端 Vue 基本功自测",
+    "jj9rnjwpe2h2c5x2u03wnkc": "2024 年文章",
+    "4z8xf4evgxjq9xa6qspbkf0": "Docker镜像拉取困难？看这里！阿里云部署Dashy的成功案例",
+    "3urgjw37km17icqga1fpl1g": "React 源码分析 - 第一部分架构说明",
+    "4q8p1w7ik2fewu0nv9g1504": "Readme驱动开发（RDD）实践笔记",
+    "bk61pxyk0ehbwu75dr1cyj7": "SQLite 数据库备份工具 README",
+    "kwngg0r05pzb8plwew0g2za": "ai读博客 Effective Prompt 编写高质量Prompt的14个有效方法",
+    "uwgj6n14vhswfglcwqiuddq": "个人笔记软件思考 - Obsidian vs logseq 和其他",
+    "kg7ey1x9ibmvxx222c0zpjz": "使用 AI 辅助开发阿里云 OSS 自动备份工具及监控功能",
+    "m5v9x2bx1w0dknegour1q3p": "打造高效的个人知识管理系统：我的思考与实践",
+    "5tby10aumcvamgjobrozhgm": "鸿蒙HarmonyOS开发高级认证知识点总结",
+    "jzq3k39poeomxtuu0rw4wd2": "Tags",
+    "nps1x81zxd8rffss53dcfds": "React",
+    "ojqihk1gvc9x2025ueyyf99": "Prompt",
+    "6xrqi3o92dyo030yxcy2w4u": "Vue",
+    "uv59w5pygzr05mgn2gsiy0q": "人工智能",
+    "qckkp648x79eibufdx7ldrd": "前端",
+    "x6h3yqz3zv0nmgq9dw0olq1": "开发",
+    "ak8w5k8m9mwlnap1uno5wm1": "思考",
+    "2ltb44y2vhye8ut5il6i0wf": "成长",
+    "wumpk0duqthr2lqhi3j873s": "科普",
+    "v1zm9rr62uhe3qr6ksko45c": "设计",
+    "teew81jj72hor57c4qz3qz0": "鸿蒙"
+  }
+}

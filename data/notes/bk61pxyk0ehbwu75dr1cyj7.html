@@ -1,0 +1,56 @@
+<h1 id="sqlite-数据库备份工具-readme">SQLite 数据库备份工具 README<a aria-hidden="true" class="anchor-heading icon-link" href="#sqlite-数据库备份工具-readme"></a></h1>
+<h2 id="相关资源">相关资源<a aria-hidden="true" class="anchor-heading icon-link" href="#相关资源"></a></h2>
+<ul>
+<li>开发记录: <a href="/notes/kg7ey1x9ibmvxx222c0zpjz">使用 AI 辅助开发阿里云 OSS 自动备份工具及监控功能</a></li>
+<li><a href="https://gitee.com/imyyliang/sqlite-database-backup-tool">项目地址</a></li>
+</ul>
+<h2 id="项目简介">项目简介<a aria-hidden="true" class="anchor-heading icon-link" href="#项目简介"></a></h2>
+<hr>
+<p>本项目旨在自动备份当前目录下所有 <code>.db</code> SQLite 数据库文件，并提供一个简单的 Web 服务来查看最后一条备份记录。该项目适用于需要定期备份 SQLite 数据库的场景，并希望通过 Web 界面快速查看备份状态的用户。</p>
+<h2 id="功能特点">功能特点<a aria-hidden="true" class="anchor-heading icon-link" href="#功能特点"></a></h2>
+<hr>
+<ul>
+<li><strong>自动备份</strong>：每两小时自动扫描并备份当前目录及其子目录下的所有 <code>.db</code> 文件。</li>
+<li><strong>Web 访问</strong>：提供一个简单的 Web 服务，通过访问 <code>http://localhost:4783</code> 可以查看最后一条备份记录。</li>
+<li><strong>日志记录</strong>：每次备份操作都会记录到 <code>backup-log</code> 文件中，方便后续查看备份历史。</li>
+</ul>
+<h2 id="使用方法">使用方法<a aria-hidden="true" class="anchor-heading icon-link" href="#使用方法"></a></h2>
+<hr>
+<h3 id="安装依赖">安装依赖<a aria-hidden="true" class="anchor-heading icon-link" href="#安装依赖"></a></h3>
+<p>首先，确保你已经安装了 Node.js 和 npm。然后，在项目根目录下运行以下命令安装依赖：</p>
+<pre class="language-text-plain"><code class="language-text-plain">npm install
+</code></pre>
+<h3 id="启动服务">启动服务<a aria-hidden="true" class="anchor-heading icon-link" href="#启动服务"></a></h3>
+<p>安装完成后，运行以下命令启动备份服务和 Web 服务：</p>
+<pre class="language-text-plain"><code class="language-text-plain">node index.js
+</code></pre>
+<h3 id="查看备份记录">查看备份记录<a aria-hidden="true" class="anchor-heading icon-link" href="#查看备份记录"></a></h3>
+<p>启动服务后，打开浏览器访问 <code>http://localhost:4783</code>，即可查看最后一条备份记录。</p>
+<h2 id="项目结构">项目结构<a aria-hidden="true" class="anchor-heading icon-link" href="#项目结构"></a></h2>
+<hr>
+<ul>
+<li><code>server.js</code>：提供 Web 服务，展示最后一条备份记录。</li>
+<li><code>backupUtil.js</code>：负责自动备份 <code>.db</code> 文件，并记录备份日志。</li>
+<li><code>index.js</code>：启动备份服务和 Web 服务。</li>
+<li><code>config.json</code>：配置文件，包含阿里云 OSS 的访问密钥等信息。</li>
+</ul>
+<h2 id="贡献">贡献<a aria-hidden="true" class="anchor-heading icon-link" href="#贡献"></a></h2>
+<p>--</p>
+<p>欢迎大家贡献代码，提出问题或建议。如果你觉得这个项目对你有帮助，请点个 star 支持一下！</p>
+<h2 id="许可证">许可证<a aria-hidden="true" class="anchor-heading icon-link" href="#许可证"></a></h2>
+<hr>
+<p>本项目采用 WTFPL 许可证，</p>
+<p>也叫做你他妈的想干嘛就干嘛公共许可证</p>
+<p>想怎么搞怎么搞, 祝你心想事成哟。</p>
+<p>WTFPL = Do What the Fuck You Want to Public License</p>
+<hr>
+<h2 id="tags">Tags<a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a></h2>
+<ol>
+<li><a class="color-tag" style="--tag-color: #fdc1c5;" href="/notes/x6h3yqz3zv0nmgq9dw0olq1">开发</a></li>
+</ol>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/">伟's 博客首页</a></li>
+<li><a href="/notes/kg7ey1x9ibmvxx222c0zpjz">使用 AI 辅助开发阿里云 OSS 自动备份工具及监控功能</a></li>
+</ul>
